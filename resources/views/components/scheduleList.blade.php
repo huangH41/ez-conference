@@ -23,7 +23,7 @@
             style="max-width: 540px; border:none; box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0), 0 0px 20px 0 rgba(0, 0, 0, 0.19);">
             <div class="row g-0">
                 <div class="col-md-3 px-3" style="border-right:1px solid #a8a8a8">
-                    <img src="{{ asset('Img/Logo Ez Conference.png') }}" style="max-width: 100%" alt="zoom">
+                    <img src="/assets/logo.png" style="max-width: 100%" alt="zoom">
                 </div>
                 <div class="col-md-6 my-auto">
                     <div class="card-body px-3">
@@ -44,7 +44,7 @@
             style="max-width: 540px; border:none; box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0), 0 0px 20px 0 rgba(0, 0, 0, 0.19);">
             <div class="row g-0">
                 <div class="col-md-3 px-3" style="border-right:1px solid #a8a8a8">
-                    <img src="{{ asset('Img/Logo Ez Conference.png') }}" style="max-width: 100%" alt="zoom">
+                    <img src="/assets/logo.png" style="max-width: 100%" alt="zoom">
                 </div>
                 <div class="col-md-6 my-auto">
                     <div class="card-body px-3">
@@ -65,7 +65,7 @@
             style="max-width: 540px; border:none; box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0), 0 0px 20px 0 rgba(0, 0, 0, 0.19);">
             <div class="row g-0">
                 <div class="col-md-3 px-3" style="border-right:1px solid #a8a8a8">
-                    <img src="{{ asset('Img/Logo Ez Conference.png') }}" style="max-width: 100%" alt="zoom">
+                    <img src="/assets/logo.png" style="max-width: 100%" alt="zoom">
                 </div>
                 <div class="col-md-6 my-auto">
                     <div class="card-body px-3">

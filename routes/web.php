@@ -18,6 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get('/schedule', function () {
-    return view('scheduleList');
+    return view('components.scheduleList');
 });
 
