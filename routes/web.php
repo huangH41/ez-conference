@@ -21,3 +21,8 @@ Route::get('/schedule', function () {
     return view('components.scheduleList');
 });
 
+
+// For development purpose
+Route::get('/calendar', function() {
+    return view('main');
+});

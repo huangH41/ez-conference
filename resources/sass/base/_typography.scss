@@ -1,1 +1,13 @@
-// Text Style such as Header, SubHeader, Body should be styled here
+.header1, .subheader2, .body1 {
+    margin: 0;
+}
+
+.header1 {
+    font-size: 3.2rem;
+    font-weight: $font-weight-bold;
+}
+
+.subheader2 {
+    font-size: 2rem;
+    font-weight: $font-weight-medium;
+}
