@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    margin: 1% 0 2% 0;
+    &-title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 79.5%;
+        &-text {
+            margin-left: 1%;
+        }
+    }
+}
+
+.profile {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-name {
+        white-space: nowrap;
+    }
+    &-picture {
+        margin-left: 5%;
+        width: 5em;
+        height: 5em;
+    }
+}
+
+.logo {
+    width: 5em;
+    height: 5em;
+    box-shadow: $shadow;
+    margin-right: 2%;
+}
