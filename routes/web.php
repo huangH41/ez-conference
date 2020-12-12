@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/schedule', function () {
+    return view('components.scheduleList');
+});
+
+
+// For development purpose
+Route::get('/calendar', function() {
+    return view('main');
+});
