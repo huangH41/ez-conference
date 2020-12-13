@@ -37446,8 +37446,8 @@ console.log(month);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Mata kuliah\Semester 5\Web Programming\Project kelas kecil\ezConference\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Mata kuliah\Semester 5\Web Programming\Project kelas kecil\ezConference\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\ez-conference\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\ez-conference\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

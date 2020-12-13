@@ -10,6 +10,7 @@
 </head>
 <body>
     @include('components.calendar')
+    @include('components.counter')
 </body>
 
 <script src="/js/app.js"></script>
