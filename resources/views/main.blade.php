@@ -9,7 +9,10 @@
     <title>Document</title>
 </head>
 <body>
+    @include('components.sidebar')
+    @include('components.header')
     @include('components.calendar')
+    @include('components.counter')
 </body>
 
 <script src="/js/app.js"></script>

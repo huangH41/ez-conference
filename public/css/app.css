@@ -10914,8 +10914,13 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  margin-left: 7%;
+  padding: 0 1%;
+}
+
 .header1,
-.subheader2,
+.subheader1 .subheader2,
 .body1 {
   margin: 0;
 }
@@ -10925,9 +10930,19 @@ html {
   font-weight: 700;
 }
 
+.subheader1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
 .subheader2 {
   font-size: 2rem;
   font-weight: 500;
+}
+
+.body2 {
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 .tmp-container {
@@ -10939,7 +10954,7 @@ html {
   width: 100%;
   max-width: 72rem;
   min-width: 48rem;
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
@@ -10953,14 +10968,14 @@ html {
 }
 
 .calendar__header .header1 {
-  color: #77569E;
+  color: #77569e;
 }
 
 .calendar__arrow {
   font-size: 3.2rem;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
   cursor: pointer;
-  color: #FD367E;
+  color: #fd367e;
   transform: translateY(-1px);
   transition: all 0.2s;
 }
@@ -11008,12 +11023,12 @@ html {
 }
 
 .calendar__day--disabled {
-  color: #A8A8A8;
+  color: #a8a8a8;
 }
 
 .calendar__day--ordered {
   position: relative;
-  color: #FCFCFC;
+  color: #fcfcfc;
 }
 
 .calendar__day--ordered::after {
@@ -11026,7 +11041,89 @@ html {
   width: 3.6rem;
   height: 3.6rem;
   border-radius: 50%;
-  background-color: #77569E;
+  background-color: #77569e;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50rem;
+  height: 48rem;
+  background-image: linear-gradient(150deg, #7274b6 26.86%, #7d51a1 93.24%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  color: #fcfcfc;
+}
+
+.counter-number {
+  font-size: 15rem;
+}
+
+.counter-footer {
+  text-align: center;
+  width: 50%;
+
+.sidebar {
+  height: 100%;
+  width: 5%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #77569E;
+  overflow-x: hidden;
+}
+
+.sidebar-icon {
+  display: flex;
+  justify-content: center;
+  padding: 1.5em;
+}
+
+.active {
+  background-color: #FD367E;
+}
+
+.header {
+  display: flex;
+  margin: 1% 0 2% 0;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 79.5%;
+}
+
+.header-title-text {
+  margin-left: 1%;
+}
+
+.profile {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-name {
+  white-space: nowrap;
+}
+
+.profile-picture {
+  margin-left: 5%;
+  width: 5em;
+  height: 5em;
+}
+
+.logo {
+  width: 5em;
+  height: 5em;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  margin-right: 2%;
 }
 
