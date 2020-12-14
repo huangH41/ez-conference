@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,7 @@ Route::get('/schedule', function () {
 
 
 // For development purpose
-Route::get('/calendar', function() {
+Route::get('/test', function() {
     return view('main');
 });
 

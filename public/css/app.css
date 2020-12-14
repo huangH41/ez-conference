@@ -10920,8 +10920,7 @@ body {
 }
 
 .header1,
-.subheader1 .subheader2,
-.body1 {
+.subheader1 .subheader2 {
   margin: 0;
 }
 
@@ -11065,6 +11064,7 @@ body {
 .counter-footer {
   text-align: center;
   width: 50%;
+}
 
 .sidebar {
   height: 100%;
@@ -11073,7 +11073,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #77569E;
+  background-color: #77569e;
   overflow-x: hidden;
 }
 
@@ -11084,7 +11084,7 @@ body {
 }
 
 .active {
-  background-color: #FD367E;
+  background-color: #fd367e;
 }
 
 .header {
