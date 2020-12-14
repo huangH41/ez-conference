@@ -77,9 +77,8 @@
         display: flex;
         flex-wrap: wrap;
 
-        >div {
+        > div {
             font-size: $font-size-regular;
-            cursor: default;
             width: calc(100%/7);
             height: 4.8rem;
 
@@ -102,22 +101,30 @@
     }
 
     &__day {
-
-        &--disabled,
-        &--ordered {
-            cursor: default;
+        &--ordered, &--selected {
+            position: relative;
+            color: $white;
         }
 
         &--disabled {
+            cursor: default;
             color: $black-light;
         }
 
         &--ordered {
-            position: relative;
-            color: $white;
+            cursor: pointer;
 
             &::after {
+                // cursor: pointer;
                 background-color: $primary;
+            }
+        }
+
+        &--selected {
+            cursor: default;
+
+            &::after {
+                background-color: $accent !important;
             }
         }
     }

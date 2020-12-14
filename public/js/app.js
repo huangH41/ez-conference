@@ -37449,6 +37449,7 @@ var calModule = __webpack_require__(/*! calendar */ "./node_modules/calendar/lib
 var cal = new calModule.Calendar();
 var dateObj = new Date();
 var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var selectedDateElement = null;
 
 function renderCalendar() {
   var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
@@ -37506,6 +37507,20 @@ document.getElementById('cal-right-arr').addEventListener('click', function () {
   month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
   createCalendar();
 });
+setTimeout(function () {
+  document.querySelectorAll(".calendar__days > div:not([class=\"calendar__day--disabled\"])").forEach(function (el) {
+    el.addEventListener('click', function () {
+      var selectedClass = 'calendar__day--selected';
+
+      if (selectedDateElement != null) {
+        selectedDateElement.classList.remove(selectedClass);
+      }
+
+      el.classList.add(selectedClass);
+      selectedDateElement = el;
+    });
+  });
+}, 1000);
 
 /***/ }),
 

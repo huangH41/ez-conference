@@ -16,6 +16,8 @@ const monthName = [
     "December"
 ];
 
+let selectedDateElement = null;
+
 function renderCalendar(date = null) {
     document.querySelector('.calendar__header h1').innerHTML = `${monthName[dateObj.getMonth()]} ${dateObj.getFullYear()}`;
 
@@ -78,3 +80,17 @@ document.getElementById('cal-right-arr').addEventListener('click', () => {
 
     createCalendar();
 });
+
+
+setTimeout(() => {
+    document.querySelectorAll(`.calendar__days > div:not([class="calendar__day--disabled"])`).forEach((el) => {
+        el.addEventListener('click', () => {
+            const selectedClass = 'calendar__day--selected';
+            if(selectedDateElement != null) {
+                selectedDateElement.classList.remove(selectedClass);
+            }
+            el.classList.add(selectedClass);
+            selectedDateElement = el;
+        })
+    });
+}, 1000);
