@@ -1,0 +1,19 @@
+.sidebar {
+    height: 100%;
+    width: 5%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: $primary;
+    overflow-x: hidden;
+    &-icon {
+        display: flex;
+        justify-content: center;
+        padding: 1.5em;
+    }
+}
+
+.active {
+    background-color: $accent;
+}
