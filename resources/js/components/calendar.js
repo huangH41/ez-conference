@@ -18,6 +18,20 @@ const monthName = [
 
 let selectedDateElement = null;
 
+function setCalendarDatesEventListener() {
+    document.querySelectorAll(`.calendar__days > div:not([class="calendar__day--disabled"])`).forEach((el) => {
+        el.addEventListener('click', () => {
+            const selectedClass = 'calendar__day--selected';
+            if(selectedDateElement != null) {
+                selectedDateElement.classList.remove(selectedClass);
+            }
+            el.classList.add(selectedClass);
+            selectedDateElement = el;
+            document.getElementById('rentalDate').setAttribute('value', `${dateObj.getFullYear()}-${dateObj.getMonth()+1}-${selectedDateElement.innerHTML}`);
+        })
+    });
+}
+
 function renderCalendar(date = null) {
     document.querySelector('.calendar__header h1').innerHTML = `${monthName[dateObj.getMonth()]} ${dateObj.getFullYear()}`;
 
@@ -41,6 +55,8 @@ function renderCalendar(date = null) {
             calendarDays.innerHTML += `<div class=${elClass}>${dateInMonth[i][j].getDate()}</div>`;
         }
     }
+
+    setCalendarDatesEventListener()
 }
 
 function createCalendar() {
@@ -80,17 +96,3 @@ document.getElementById('cal-right-arr').addEventListener('click', () => {
 
     createCalendar();
 });
-
-
-setTimeout(() => {
-    document.querySelectorAll(`.calendar__days > div:not([class="calendar__day--disabled"])`).forEach((el) => {
-        el.addEventListener('click', () => {
-            const selectedClass = 'calendar__day--selected';
-            if(selectedDateElement != null) {
-                selectedDateElement.classList.remove(selectedClass);
-            }
-            el.classList.add(selectedClass);
-            selectedDateElement = el;
-        })
-    });
-}, 1000);

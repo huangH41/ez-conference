@@ -37451,6 +37451,22 @@ var dateObj = new Date();
 var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var selectedDateElement = null;
 
+function setCalendarDatesEventListener() {
+  document.querySelectorAll(".calendar__days > div:not([class=\"calendar__day--disabled\"])").forEach(function (el) {
+    el.addEventListener('click', function () {
+      var selectedClass = 'calendar__day--selected';
+
+      if (selectedDateElement != null) {
+        selectedDateElement.classList.remove(selectedClass);
+      }
+
+      el.classList.add(selectedClass);
+      selectedDateElement = el;
+      document.getElementById('rentalDate').setAttribute('value', "".concat(dateObj.getFullYear(), "-").concat(dateObj.getMonth() + 1, "-").concat(selectedDateElement.innerHTML));
+    });
+  });
+}
+
 function renderCalendar() {
   var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
   document.querySelector('.calendar__header h1').innerHTML = "".concat(monthName[dateObj.getMonth()], " ").concat(dateObj.getFullYear());
@@ -37475,6 +37491,8 @@ function renderCalendar() {
       calendarDays.innerHTML += "<div class=".concat(elClass, ">").concat(dateInMonth[i][j].getDate(), "</div>");
     }
   }
+
+  setCalendarDatesEventListener();
 }
 
 function createCalendar() {
@@ -37507,20 +37525,6 @@ document.getElementById('cal-right-arr').addEventListener('click', function () {
   month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
   createCalendar();
 });
-setTimeout(function () {
-  document.querySelectorAll(".calendar__days > div:not([class=\"calendar__day--disabled\"])").forEach(function (el) {
-    el.addEventListener('click', function () {
-      var selectedClass = 'calendar__day--selected';
-
-      if (selectedDateElement != null) {
-        selectedDateElement.classList.remove(selectedClass);
-      }
-
-      el.classList.add(selectedClass);
-      selectedDateElement = el;
-    });
-  });
-}, 1000);
 
 /***/ }),
 
