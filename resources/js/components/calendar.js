@@ -58,7 +58,7 @@ function createCalendar() {
             scheduledDateThisMonth.sort();
             renderCalendar(scheduledDateThisMonth);
         })
-        .catch((error) => {
+        .catch(() => {
             renderCalendar();
         });
 }

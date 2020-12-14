@@ -1,7 +1,7 @@
 <div class="calendar">
     <div class="calendar__header">
         <img src="/assets/icons/arrow-left.svg" alt="Left Arrow" id="cal-left-arr" class="calendar__arrow">
-        <h1 class="header1">October 2020</h1>
+        <h1 class="header1"></h1>
         <img src="/assets/icons/arrow-right.svg" alt="Right Arrow" id="cal-right-arr" class="calendar__arrow">
     </div>
     <div class="calendar__body">
@@ -16,5 +16,7 @@
         </div>
         <div class="calendar__days">
         </div>
+
+        <input type="date" name="rentalDate" value="2020-12-29">
     </div>
 </div>

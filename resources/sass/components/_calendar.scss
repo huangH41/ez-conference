@@ -22,6 +22,7 @@
 
         .header1 {
             color: $primary;
+            cursor: default;
         }
     }
 
@@ -47,19 +48,36 @@
     &__weekdays {
         display: flex;
         margin-bottom: 1.2rem;
-        
-        > div {
+
+        >div {
             width: calc(100% / 7);
             text-transform: uppercase;
             text-align: center;
         }
     }
 
+    &__day--ordered::after,
+    &__day--selected::after,
+    &__days > div[class=""]:hover::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 50%;
+        box-shadow: $shadow;
+    }
+
     &__days {
         display: flex;
         flex-wrap: wrap;
 
-        > div {
+        >div {
             font-size: $font-size-regular;
             cursor: default;
             width: calc(100%/7);
@@ -71,11 +89,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            &[class=""]:hover {
+                cursor: pointer;
+
+                &::after {
+                    background-color: rgba($accent, .2);
+                    box-shadow: none;
+                }
+            }
         }
     }
 
     &__day {
-        &--disabled, &--ordered {
+
+        &--disabled,
+        &--ordered {
             cursor: default;
         }
 
@@ -88,19 +117,7 @@
             color: $white;
 
             &::after {
-                content: "";
-                position: absolute;
-                z-index: -1;
-                top: 50%;
-                left: 50%;
-
-                transform: translate(-50%, -50%);
-
-                width: 3.6rem;
-                height: 3.6rem;
-                border-radius: 50%;
                 background-color: $primary;
-                box-shadow: $shadow;
             }
         }
     }

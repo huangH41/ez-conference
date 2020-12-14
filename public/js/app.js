@@ -37490,7 +37490,7 @@ function createCalendar() {
     });
     scheduledDateThisMonth.sort();
     renderCalendar(scheduledDateThisMonth);
-  })["catch"](function (error) {
+  })["catch"](function () {
     renderCalendar();
   });
 }
