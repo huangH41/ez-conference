@@ -10914,6 +10914,11 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  margin-left: 7%;
+  padding: 0 1%;
+}
+
 .header1,
 .subheader2,
 .body1 {
@@ -10928,6 +10933,11 @@ html {
 .subheader2 {
   font-size: 2rem;
   font-weight: 500;
+}
+
+.body2 {
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 .tmp-container {
@@ -11028,5 +11038,66 @@ html {
   border-radius: 50%;
   background-color: #77569E;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar {
+  height: 100%;
+  width: 5%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #77569E;
+  overflow-x: hidden;
+}
+
+.sidebar-icon {
+  display: flex;
+  justify-content: center;
+  padding: 1.5em;
+}
+
+.active {
+  background-color: #FD367E;
+}
+
+.header {
+  display: flex;
+  margin: 1% 0 2% 0;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 79.5%;
+}
+
+.header-title-text {
+  margin-left: 1%;
+}
+
+.profile {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-name {
+  white-space: nowrap;
+}
+
+.profile-picture {
+  margin-left: 5%;
+  width: 5em;
+  height: 5em;
+}
+
+.logo {
+  width: 5em;
+  height: 5em;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  margin-right: 2%;
 }
 
