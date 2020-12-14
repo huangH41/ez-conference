@@ -17,6 +17,6 @@
         <div class="calendar__days">
         </div>
 
-        <input class="d-none" type="text" name="rentalDate" id="rentalDate" value="test">
+        <input class="d-none" type="date" name="rentalDate" id="rentalDate" value="test">
     </div>
 </div>
