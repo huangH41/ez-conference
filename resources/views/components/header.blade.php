@@ -3,7 +3,7 @@
     <div class="header-title">
         <img src="/assets/icons/home-accent.svg" alt="Home Accent Icon">
         <div class="header1 header-title-text">
-            Overview
+            @yield('title')
         </div>
     </div>
     <div class="profile">

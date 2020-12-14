@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Overview
+@endsection
+
 @section('content')
     <div class="home">
         @include('components.sidebar')
