@@ -1,6 +1,11 @@
 .header {
     display: flex;
-    margin: 1% 0 2% 0;
+    padding: 1% 2%;
+    background-color: $white;
+    margin-left: $sidebar-width;
+    position: sticky;
+    top: 0;
+    z-index: 99;
     &-title {
         display: flex;
         align-items: center;

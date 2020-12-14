@@ -1,23 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+    <div class="home">
+        @include('components.sidebar')
+        <div class="content">
+            <div class="row mb-4">
+                <div class="col-md-7">
+                    @include('components.calendar')
+                </div>
+                <div class="col-md-5">
+                    @include('components.counter')
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-7">
+                    @include('components.scheduleList')
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
