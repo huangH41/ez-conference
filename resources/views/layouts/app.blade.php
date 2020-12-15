@@ -19,6 +19,7 @@
     <div id="app">
         @include('components.header')
         <main>
+            @include('components.sidebar')
             @yield('content')
         </main>
     </div>
