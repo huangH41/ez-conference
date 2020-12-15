@@ -11108,7 +11108,7 @@ html {
   padding: 1em;
 }
 
-.sidebar-icon-yield {
+.sidebar-icon-container {
   width: 5em;
   height: 5em;
   display: flex;
@@ -11116,7 +11116,7 @@ html {
   justify-content: center;
 }
 
-.sidebar-icon-yield img {
+.sidebar-icon-container img {
   max-width: 100%;
   max-height: 100%;
 }
