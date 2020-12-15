@@ -15,6 +15,11 @@
             <div class="subheader2">Sat</div>
         </div>
         <div class="calendar__days">
+            @for($i =0 ; $i < 35 ; $i++)
+                <div class="spinner-grow calendar__day--loading">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            @endfor
         </div>
 
         <input class="d-none" type="date" name="rentalDate" id="rentalDate" value="test">

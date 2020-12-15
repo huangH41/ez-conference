@@ -39,10 +39,10 @@ function renderCalendar(date = null) {
     const calendarDays = document.querySelector('.calendar__days');
     calendarDays.innerHTML = "";
     let dateIdx = 0;
-    
+
     for(let i = 0; i < dateInMonth.length; i++) {
         for(let j = 0; j < 7; j++) {
-            const elClass = '';
+            let elClass = '';
             if(dateInMonth[i][j].getMonth() != dateObj.getMonth()) {
                 elClass = 'calendar__day--disabled';
             } else if(date != null) {
@@ -51,7 +51,7 @@ function renderCalendar(date = null) {
                     dateIdx++;
                 }
             }
-            
+
             calendarDays.innerHTML += `<div class=${elClass}>${dateInMonth[i][j].getDate()}</div>`;
         }
     }
@@ -72,7 +72,7 @@ function createCalendar() {
                     scheduledDateThisMonth.push(temp.getDate());
                 }
             });
-            
+
             scheduledDateThisMonth.sort();
             renderCalendar(scheduledDateThisMonth);
         })

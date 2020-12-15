@@ -59,6 +59,7 @@
 
     &__day--ordered::after,
     &__day--selected::after,
+    &__day--loading::after,
     &__days > div[class=""]:hover::after {
         content: "";
         position: absolute;
@@ -126,6 +127,15 @@
 
             &::after {
                 background-color: $accent !important;
+            }
+        }
+
+        &--loading {
+            cursor: default;
+            background: none;
+
+            &::after {
+                background-color: $black-light !important;
             }
         }
     }
