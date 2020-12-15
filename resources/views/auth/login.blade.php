@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.base')
 
 @section('link__css')
     <link rel="stylesheet" href={{ asset('css/style.css') }}>
 @endsection
 
-@section('content')
+@section('app')
 <div class="container__form">
   <div class="element">
     <div class="element__left">
@@ -44,7 +44,7 @@
                 @enderror
             </div>
           </div>
-          
+
           <div>
             <div>
                 <div>
