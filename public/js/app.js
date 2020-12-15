@@ -37361,9 +37361,34 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./components/calendar */ "./resources/js/components/calendar.js");
+__webpack_require__(/*! ./components/calendar */ "./resources/js/components/calendar.js"); // window.Vue = require('vue');
+
+/**
+ * The following block of code may be used to automatically register your
+ * Vue components. It will recursively scan this directory for the Vue
+ * components and automatically register them with their "basename".
+ *
+ * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ */
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+// const app = new Vue({
+//     el: '#app',
+// });
 
 /***/ }),
 
@@ -37423,8 +37448,83 @@ var calModule = __webpack_require__(/*! calendar */ "./node_modules/calendar/lib
 
 var cal = new calModule.Calendar();
 var dateObj = new Date();
-var month = cal.monthDates(2020, dateObj.getMonth());
-console.log(month);
+var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var selectedDateElement = null;
+
+function setCalendarDatesEventListener() {
+  document.querySelectorAll(".calendar__days > div:not([class=\"calendar__day--disabled\"])").forEach(function (el) {
+    el.addEventListener('click', function () {
+      var selectedClass = 'calendar__day--selected';
+
+      if (selectedDateElement != null) {
+        selectedDateElement.classList.remove(selectedClass);
+      }
+
+      el.classList.add(selectedClass);
+      selectedDateElement = el;
+      document.getElementById('rentalDate').setAttribute('value', "".concat(dateObj.getFullYear(), "-").concat(dateObj.getMonth() + 1, "-").concat(selectedDateElement.innerHTML));
+    });
+  });
+}
+
+function renderCalendar() {
+  var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  document.querySelector('.calendar__header h1').innerHTML = "".concat(monthName[dateObj.getMonth()], " ").concat(dateObj.getFullYear());
+  var dateInMonth = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
+  var calendarDays = document.querySelector('.calendar__days');
+  calendarDays.innerHTML = "";
+  var dateIdx = 0;
+
+  for (var i = 0; i < dateInMonth.length; i++) {
+    for (var j = 0; j < 7; j++) {
+      var elClass = '';
+
+      if (dateInMonth[i][j].getMonth() != dateObj.getMonth()) {
+        elClass = 'calendar__day--disabled';
+      } else if (date != null) {
+        if (date[dateIdx] == dateInMonth[i][j].getDate()) {
+          elClass = 'calendar__day--ordered';
+          dateIdx++;
+        }
+      }
+
+      calendarDays.innerHTML += "<div class=".concat(elClass, ">").concat(dateInMonth[i][j].getDate(), "</div>");
+    }
+  }
+
+  setCalendarDatesEventListener();
+}
+
+function createCalendar() {
+  fetch('http://127.0.0.1:8000/calendar/data').then(function (result) {
+    return result.json();
+  }).then(function (data) {
+    var scheduledDateThisMonth = [];
+    data.forEach(function (item) {
+      var temp = new Date(item);
+
+      if (temp.getMonth() == dateObj.getMonth()) {
+        scheduledDateThisMonth.push(temp.getDate());
+      }
+    });
+    scheduledDateThisMonth.sort();
+    renderCalendar(scheduledDateThisMonth);
+  })["catch"](function () {
+    renderCalendar();
+  });
+}
+
+createCalendar();
+document.getElementById('cal-left-arr').addEventListener('click', function () {
+  dateObj.setMonth(dateObj.getMonth() - 1);
+  month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
+  createCalendar();
+});
+document.getElementById('cal-right-arr').addEventListener('click', function () {
+  dateObj.setMonth(dateObj.getMonth() + 1);
+  month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
+  createCalendar();
+});
 
 /***/ }),
 
@@ -37446,8 +37546,8 @@ console.log(month);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Mata kuliah\Semester 5\Web Programming\Project kelas kecil\ezConference\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Mata kuliah\Semester 5\Web Programming\Project kelas kecil\ezConference\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\randi\Documents\Codes\Web\ez-conference\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\randi\Documents\Codes\Web\ez-conference\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

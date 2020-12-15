@@ -1,0 +1,18 @@
+.counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 48rem;
+    background-image: $gradient;
+    box-shadow: $shadow;
+    border-radius: $round-corner;
+    color: $white;
+    &-number {
+        font-size: 15rem;
+    }
+    &-footer {
+        text-align: center;
+        width: 50%;
+    }
+}

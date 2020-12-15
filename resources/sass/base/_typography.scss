@@ -1,4 +1,5 @@
-.header1, .subheader2, .body1 {
+.header1,
+.subheader1 .subheader2 {
     margin: 0;
 }
 
@@ -7,7 +8,22 @@
     font-weight: $font-weight-bold;
 }
 
+.subheader1 {
+    font-size: 2.5rem;
+    font-weight: $font-weight-medium;
+}
+
 .subheader2 {
     font-size: 2rem;
     font-weight: $font-weight-medium;
+}
+
+.body1 {
+    font-size: 1.25rem;
+    font-weight: $font-weight-regular;
+}
+
+.body2 {
+    font-size: 2rem;
+    font-weight: $font-weight-regular;
 }

@@ -4,14 +4,15 @@
 }
 
 .calendar {
+    height: 100%;
     width: 100%;
-    max-width: 72rem;
     min-width: 48rem;
 
     background-color: $white;
     border-radius: $round-corner;
     box-shadow: $shadow;
 
+    @include centerized-flex;
     &__header {
         margin: 0 1.2rem 1.2rem 1.2rem;
         padding: 2rem;
@@ -22,6 +23,7 @@
 
         .header1 {
             color: $primary;
+            cursor: default;
         }
     }
 
@@ -47,12 +49,29 @@
     &__weekdays {
         display: flex;
         margin-bottom: 1.2rem;
-        
-        > div {
+
+        >div {
             width: calc(100% / 7);
             text-transform: uppercase;
             text-align: center;
         }
+    }
+
+    &__day--ordered::after,
+    &__day--selected::after,
+    &__days > div[class=""]:hover::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 50%;
+        box-shadow: $shadow;
     }
 
     &__days {
@@ -61,7 +80,6 @@
 
         > div {
             font-size: $font-size-regular;
-            cursor: default;
             width: calc(100%/7);
             height: 4.8rem;
 
@@ -71,36 +89,43 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            &[class=""]:hover {
+                cursor: pointer;
+
+                &::after {
+                    background-color: rgba($accent, .2);
+                    box-shadow: none;
+                }
+            }
         }
     }
 
     &__day {
-        &--disabled, &--ordered {
-            cursor: default;
+        &--ordered, &--selected {
+            position: relative;
+            color: $white;
         }
 
         &--disabled {
+            cursor: default;
             color: $black-light;
         }
 
         &--ordered {
-            position: relative;
-            color: $white;
+            cursor: pointer;
 
             &::after {
-                content: "";
-                position: absolute;
-                z-index: -1;
-                top: 50%;
-                left: 50%;
-
-                transform: translate(-50%, -50%);
-
-                width: 3.6rem;
-                height: 3.6rem;
-                border-radius: 50%;
+                // cursor: pointer;
                 background-color: $primary;
-                box-shadow: $shadow;
+            }
+        }
+
+        &--selected {
+            cursor: default;
+
+            &::after {
+                background-color: $accent !important;
             }
         }
     }

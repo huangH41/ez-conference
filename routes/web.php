@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,13 +24,16 @@ Route::get('/schedule', function () {
 
 
 // For development purpose
-Route::get('/calendar', function() {
+Route::get('/test', function() {
     return view('main');
 });
-Auth::routes();
 
-Route::get('/test', function() {
-    return view('auth.passwords.test');
+Route::get('/calendar/data', function() {
+    $rentalDate = ['2020-12-27', '2020-12-19', '2021-1-13'];
+    return response()->json($rentalDate);
 });
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
