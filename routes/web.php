@@ -28,4 +28,8 @@ Route::get('/calendar', function() {
 });
 Auth::routes();
 
+Route::get('/test', function() {
+    return view('auth.passwords.test');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
