@@ -33,7 +33,8 @@ Route::get('/calendar/data', function() {
     return response()->json($rentalDate);
 });
 
+Route::get('/transaction', 'RentalTransactionController@index');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
