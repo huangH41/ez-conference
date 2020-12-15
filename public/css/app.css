@@ -10914,11 +10914,6 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  margin-left: 7%;
-  padding: 0 1%;
-}
-
 .header1,
 .subheader1 .subheader2 {
   margin: 0;
@@ -10939,6 +10934,11 @@ body {
   font-weight: 500;
 }
 
+.body1 {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
 .body2 {
   font-size: 2rem;
   font-weight: 400;
@@ -10950,12 +10950,15 @@ body {
 }
 
 .calendar {
+  height: 100%;
   width: 100%;
-  max-width: 72rem;
   min-width: 48rem;
   background-color: #fcfcfc;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .calendar__header {
@@ -11072,7 +11075,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50rem;
   height: 48rem;
   background-image: linear-gradient(150deg, #7274b6 26.86%, #7d51a1 93.24%);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -11112,7 +11114,13 @@ body {
 
 .header {
   display: flex;
-  margin: 1% 0 2% 0;
+  padding: 1% 2%;
+  background-color: #fcfcfc;
+  margin-left: 5%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 
 .header-title {
@@ -11148,5 +11156,14 @@ body {
   height: 5em;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   margin-right: 2%;
+}
+
+main .home {
+  width: 100%;
+}
+
+main .home .content {
+  margin-left: 5%;
+  padding: 1% 2%;
 }
 

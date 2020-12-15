@@ -1,0 +1,9 @@
+main {
+    & .home {
+        width: 100%;
+        & .content {
+            margin-left: $sidebar-width;
+            padding: 1% 2%;
+        }
+    }
+}

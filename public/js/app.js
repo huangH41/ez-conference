@@ -37546,8 +37546,8 @@ document.getElementById('cal-right-arr').addEventListener('click', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Mata kuliah\Semester 5\Web Programming\Project kelas kecil\ezConference\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Mata kuliah\Semester 5\Web Programming\Project kelas kecil\ezConference\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\randi\Documents\Codes\Web\ez-conference\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\randi\Documents\Codes\Web\ez-conference\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
