@@ -11005,6 +11005,7 @@ html {
 
 .calendar__day--ordered::after,
 .calendar__day--selected::after,
+.calendar__day--loading::after,
 .calendar__days > div[class=""]:hover::after {
   content: "";
   position: absolute;
@@ -11068,6 +11069,15 @@ html {
 
 .calendar__day--selected::after {
   background-color: #fd367e !important;
+}
+
+.calendar__day--loading {
+  cursor: default;
+  background: none;
+}
+
+.calendar__day--loading::after {
+  background-color: #a8a8a8 !important;
 }
 
 .counter {
