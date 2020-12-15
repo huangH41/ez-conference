@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.base')
 
 @section('link__css')
     <link rel="stylesheet" href={{ asset('css/style.css') }}>
 @endsection
 
-@section('content')
+@section('app')
 <div class="container__form">
     <div class="element">
         <div class="element__left">
@@ -22,11 +22,11 @@
         <div class="form__box">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
-            
+
                 <div class="form-group row">
                     <div class="col-md-11">
                         <input id="name" placeholder="Name" type="text" class="input__key form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            
+
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -34,7 +34,7 @@
                         @enderror
                     </div>
                 </div>
-            
+
                 <div class="form-group row">
                     <div class="col-md-11">
                         <input placeholder="E-Mail" id="email" type="email" class="input__key form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -45,7 +45,7 @@
                         @enderror
                     </div>
                 </div>
-            
+
                 <div class="form-group row">
                     <div class="col-md-11">
                         <input placeholder="Password" id="password" type="password" class="input__key form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -56,13 +56,13 @@
                         @enderror
                     </div>
                 </div>
-            
+
                 <div class="form-group row">
                     <div class="col-md-11">
                         <input placeholder="Confirm Password" id="password-confirm" type="password" class="input__key form-control" name="password_confirmation" required autocomplete="new-password">
                     </div>
                 </div>
-            
+
                 <div>
                     <div>
                         <button type="submit">
