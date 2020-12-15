@@ -6,7 +6,6 @@
 
 @section('content')
     <div class="home">
-        @include('components.sidebar')
         <div class="content">
             <div class="row mb-4">
                 <div class="col-md-7">
