@@ -30,6 +30,8 @@ Route::get('/test', function() {
 
 Route::get('/calendar/data', 'HomeController@calendar');
 
+Route::get('/transaction', 'RentalTransactionController@index');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
