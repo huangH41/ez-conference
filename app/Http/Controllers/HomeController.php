@@ -29,4 +29,11 @@ class HomeController extends Controller
         $rentsCount = $rents->count();
         return view('home',['rents' => $rents , 'rentsCount' => $rentsCount]);
     }
+
+    public function calendar() {
+        $id = Auth::id();
+        $rents = RentalTransaction::all()->where('user_id','=',$id);
+        $date = $rents->pluck('date');
+        return response()->json($date->toArray());
+    }
 }
