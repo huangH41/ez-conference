@@ -22,6 +22,13 @@ class RentalTransactionSeeder extends Seeder
             ],
             [
                 'user_id' => "1",
+                'zoom_id' => "1",
+                'date' => now(),
+                'time' => now()->addHour(),
+                'duration' => "3",
+            ],
+            [
+                'user_id' => "1",
                 'zoom_id' => "3",
                 'date' => now()->addDay(),
                 'time' => now()->addHours(-2),

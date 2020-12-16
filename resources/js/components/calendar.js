@@ -60,13 +60,14 @@ function renderCalendar(date = null) {
 }
 
 function createCalendar() {
-    fetch('http://127.0.0.1:8000/api/calendar/data')
+    fetch('http://127.0.0.1:8000/calendar/data')
         .then((result) => {
             return result.json();
         })
         .then(data => {
             const scheduledDateThisMonth = [];
-            data.forEach(item => {
+            const array = Object.values(data);
+            array.forEach(item => {
                 const temp = new Date(item);
                 if(temp.getMonth() == dateObj.getMonth()) {
                     scheduledDateThisMonth.push(temp.getDate());
