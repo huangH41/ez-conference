@@ -37500,7 +37500,8 @@ function createCalendar() {
     return result.json();
   }).then(function (data) {
     var scheduledDateThisMonth = [];
-    data.forEach(function (item) {
+    var array = Object.values(data);
+    array.forEach(function (item) {
       var temp = new Date(item);
 
       if (temp.getMonth() == dateObj.getMonth()) {

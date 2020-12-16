@@ -22,13 +22,10 @@ Route::get('/schedule', function () {
     return view('components.scheduleList');
 });
 
-
 // For development purpose
 Route::get('/test', function() {
     return view('main');
 });
-
-Route::get('/calendar/data', 'HomeController@calendar');
 
 Route::get('/transaction', 'RentalTransactionController@index');
 
@@ -37,3 +34,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/rent/{id}/zoom', 'ZoomController@create')->name('createZoom');
+
+Route::get('/calendar/data', 'RentalTransactionController@calendar');
