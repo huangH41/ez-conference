@@ -34,6 +34,13 @@ class RentalTransactionSeeder extends Seeder
                 'time' => now()->addHours(4),
                 'duration' => "24",
             ],
+            [
+                'user_id' => "2",
+                'zoom_id' => "2",
+                'date' => now(),
+                'time' => now()->addHours(4)->addMinutes(20),
+                'duration' => "24",
+            ],
         ]);
     }
 }

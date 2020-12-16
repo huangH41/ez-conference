@@ -7,6 +7,9 @@
 @section('content')
     <div class="home">
         <div class="content">
+            @if(session()->has('success'))
+                <div class="alert alert-success body1">{{session()->get('success')}}</div>
+            @endif
             <div class="row mb-4">
                 <div class="col-md-7">
                     @include('components.calendar',['rents' => $rents])

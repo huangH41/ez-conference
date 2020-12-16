@@ -16,14 +16,17 @@ class ZoomSeeder extends Seeder
             [
                 'participant' => "100",
                 'price' => "5000",
+                'zoom_user_id' => "Gz_M7pLqTKO2kjd197fYZw"
             ],
             [
                 'participant' => "300",
                 'price' => "10000",
+                'zoom_user_id' => "Gz_M7pLqTKO2kjd197fYZw"
             ],
             [
                 'participant' => "1000",
                 'price' => "20000",
+                'zoom_user_id' => "Gz_M7pLqTKO2kjd197fYZw"
             ],
         ]);
     }

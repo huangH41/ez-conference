@@ -19,12 +19,29 @@
                         <p class="card-text body1 m-0">Rental Start Time: {{date('h:i A',strtotime($rent->time))}}</p>
                     </div>
                     <div class="d-flex align-items-center">
-                        <button type="button" style="background-color: #fd367e; border:none" class="subheader2 btn btn-primary">Open
-                            Zoom
-                        </button>
+                        @if($rent->join_link != null && $rent->start_link != null)
+                            <div class="p-1">
+                                <a href="{{$rent->start_link}}" type="button" style="background-color: #fd367e; border:none"
+                                   class="subheader2 btn btn-primary" target="_blank">
+                                    Host Link
+                                </a>
+                            </div>
+                            <div class="p-1">
+                                <a href="{{$rent->join_link}}" type="button" style="background-color: #fd367e; border:none"
+                                   class="subheader2 btn btn-primary" target="_blank">
+                                    Guest Link
+                                </a>
+                            </div>
                     </div>
+                    @elseif(date('j M Y',strtotime($rent->date)) == date('j M Y',time()))
+                        <a href="{{route('createZoom',$rent->id)}}" type="button"
+                           style="background-color: #fd367e; border:none" class="subheader2 btn btn-primary">
+                            Create Meetings
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
-    @endforeach
+</div>
+@endforeach
 </div>

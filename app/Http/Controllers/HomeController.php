@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\RentalTransaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $rents = RentalTransaction::all();
+        $rents = RentalTransaction::all()->where('user_id','=',Auth::id());
         $rentsCount = $rents->count();
         return view('home',['rents' => $rents , 'rentsCount' => $rentsCount]);
     }
