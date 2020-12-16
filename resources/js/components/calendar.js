@@ -60,7 +60,7 @@ function renderCalendar(date = null) {
 }
 
 function createCalendar() {
-    fetch('http://127.0.0.1:8000/calendar/data')
+    fetch('http://127.0.0.1:8000/api/calendar/data')
         .then((result) => {
             return result.json();
         })

@@ -28,13 +28,12 @@ Route::get('/test', function() {
     return view('main');
 });
 
-Route::get('/calendar/data', function() {
-    $rentalDate = ['2020-12-27', '2020-12-19', '2021-1-13'];
-    return response()->json($rentalDate);
-});
+Route::get('/calendar/data', 'HomeController@calendar');
 
 Route::get('/transaction', 'RentalTransactionController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/rent/{id}/zoom', 'ZoomController@create')->name('createZoom');
