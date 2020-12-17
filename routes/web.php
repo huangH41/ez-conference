@@ -24,7 +24,7 @@ Route::get('/schedule', function () {
 
 // For development purpose
 Route::get('/test', function() {
-    return view('main');
+    return view('components.time-setter');
 });
 
 Route::get('/transaction', 'RentalTransactionController@index');

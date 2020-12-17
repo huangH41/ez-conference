@@ -10915,8 +10915,17 @@ html {
 }
 
 .header1,
-.subheader1 .subheader2 {
+.subheader1,
+.subheader2,
+.hero {
   margin: 0;
+}
+
+.hero {
+  font-size: 6.4rem;
+  font-weight: 500;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  color: #fd367e;
 }
 
 .header1 {
@@ -10942,6 +10951,14 @@ html {
 .body2 {
   font-size: 2rem;
   font-weight: 400;
+}
+
+.arrow {
+  cursor: pointer;
+}
+
+.arrow--regular {
+  width: 0.9rem;
 }
 
 .tmp-container {
@@ -11185,6 +11202,59 @@ html {
   height: 5em;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   margin-right: 2%;
+}
+
+.time-setter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-setter__container {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 0;
+  position: relative;
+}
+
+.time-setter__container::after {
+  content: "wib";
+  transform: translate(60%, 50%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  color: #141414;
+}
+
+.time-setter__input-group {
+  text-align: center;
+}
+
+.time-setter__input-group .arrow {
+  transition: all 0.4s;
+  opacity: 0.1;
+}
+
+.time-setter__input-group:hover .arrow {
+  opacity: 1;
+}
+
+.time-setter__input-control {
+  cursor: pointer;
+}
+
+.time-setter__input-label {
+  margin: 0.8rem 0;
+  padding: 0 2rem;
+  line-height: 1;
+  cursor: default;
+}
+
+.time-setter__input-group:not(:last-child) > .time-setter__input-label {
+  border-right: 1px solid #a8a8a8;
 }
 
 main .home {

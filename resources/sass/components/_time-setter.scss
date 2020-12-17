@@ -1,0 +1,53 @@
+.time-setter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 0;
+
+        position: relative;
+        &::after {
+            content: "wib";
+            transform: translate(60%, 50%);
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            font-size: 2.4rem;
+            text-transform: uppercase;
+            color: $black;
+        }
+    }
+
+    &__input-group {
+        text-align: center;
+
+        .arrow {
+            transition: all .4s;
+            opacity: .1;
+        }
+
+        &:hover .arrow {
+            opacity: 1;
+        }
+    }
+
+    &__input-control {
+        cursor: pointer;
+    }
+
+    &__input-label {
+        margin: .8rem 0;
+        padding: 0 2rem;
+        line-height: 1;
+        cursor: default;
+    }
+
+    &__input-group:not(:last-child) > &__input-label {
+        border-right: 1px solid $black-light;
+    }
+}

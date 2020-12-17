@@ -1,6 +1,15 @@
 .header1,
-.subheader1 .subheader2 {
+.subheader1,
+.subheader2,
+.hero {
     margin: 0;
+}
+
+.hero {
+    font-size: 6.4rem;
+    font-weight: $font-weight-medium;
+    text-shadow: $shadow;
+    color: $accent;
 }
 
 .header1 {

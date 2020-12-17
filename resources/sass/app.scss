@@ -8,10 +8,12 @@
 @import "base/typography";
 
 // Components
+@import "components/arrow";
 @import "components/calendar";
 @import "components/counter";
 @import "components/sidebar";
 @import "components/header";
+@import "components/time-setter";
 
 // Pages
 @import "main";
