@@ -1,22 +1,45 @@
-.tmp-container {
-    width: 48rem;
-    margin: 2rem auto;
+.transaction-input__container, .transaction-price__container {
+    height: 100%;
+    width: 100%;
+    min-width: 48rem;
+
+    background-color: $white;
+    border-radius: $round-corner;
+    box-shadow: $shadow;
+    padding: 4rem;
+
+    @include centerized-flex;
+}
+
+.transaction-price__content .hero::after, .rental-duration__container::after {
+    position: absolute;
+    top: 0;
+
+    text-transform: uppercase;
+    font-weight: $font-weight-medium;
+    color: $black;
+}
+
+.transaction-price {
+    &__content {
+        @include centerized-flex;
+        align-items: center;
+
+        .hero{
+            position: relative;
+            
+            &::after {
+                content: "Rp";
+                transform: translateX(-100%);
+                font-size: 2.4rem;
+    
+                left: 0;
+            }
+        }
+    }
 }
 
 .transaction-input {
-    &__container {
-        height: 100%;
-        width: 100%;
-        min-width: 48rem;
-
-        background-color: $white;
-        border-radius: $round-corner;
-        box-shadow: $shadow;
-        padding: 4rem;
-
-        @include centerized-flex;
-    }
-
     &__input-group {
         text-align: center;
 
@@ -72,15 +95,9 @@
         &::after {
             content: "hours";
             transform: translate(40%, 100%);
-            position: absolute;
-            top: 0;
-            right: 0;
-
             font-size: 1.6rem;
-            text-transform: uppercase;
-            font-weight: $font-weight-medium;
-            color: $black;
+
+            right: 0;
         }
     }
 }
-

@@ -11062,6 +11062,27 @@ html {
   width: 0.9rem;
 }
 
+.button {
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  filter: brightness(0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  background-color: #77569e;
+  border-radius: 4px;
+  border: none;
+  color: #fcfcfc;
+  transition: filter 0.3s;
+}
+
+.button:hover {
+  filter: brightness(1);
+}
+
+.button--main {
+  background-color: #fd367e;
+}
+
 .tmp-container {
   width: 48rem;
   margin: 2rem auto;
@@ -11305,12 +11326,8 @@ html {
   margin-right: 2%;
 }
 
-.tmp-container {
-  width: 48rem;
-  margin: 2rem auto;
-}
-
-.transaction-input__container {
+.transaction-input__container,
+.transaction-price__container {
   height: 100%;
   width: 100%;
   min-width: 48rem;
@@ -11321,6 +11338,33 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.transaction-price__content .hero::after,
+.rental-duration__container::after {
+  position: absolute;
+  top: 0;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #141414;
+}
+
+.transaction-price__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.transaction-price__content .hero {
+  position: relative;
+}
+
+.transaction-price__content .hero::after {
+  content: "Rp";
+  transform: translateX(-100%);
+  font-size: 2.4rem;
+  left: 0;
 }
 
 .transaction-input__input-group {
@@ -11378,13 +11422,8 @@ html {
 .rental-duration__container::after {
   content: "hours";
   transform: translate(40%, 100%);
-  position: absolute;
-  top: 0;
-  right: 0;
   font-size: 1.6rem;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #141414;
+  right: 0;
 }
 
 .time-setter {
