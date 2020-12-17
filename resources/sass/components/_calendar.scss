@@ -6,7 +6,6 @@
 .calendar {
     height: 100%;
     width: 100%;
-    min-width: 48rem;
 
     background-color: $white;
     border-radius: $round-corner;
@@ -16,7 +15,7 @@
     &__header {
         margin: 0 1.2rem 1.2rem 1.2rem;
         padding: 2rem;
-
+        width: 100%;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -43,7 +42,9 @@
     }
 
     &__body {
-        padding: 0 4rem 2rem 4rem;
+        @include padding-right(4rem);
+        @include padding-bottom(2rem);
+        @include padding-left(4rem);
     }
 
     &__weekdays {

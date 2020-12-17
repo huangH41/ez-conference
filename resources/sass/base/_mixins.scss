@@ -2,4 +2,27 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+@mixin padding-top($value) {
+    @include rfs($value, padding-top);
+}
+
+@mixin padding-right($value) {
+    @include rfs($value, padding-right);
+}
+
+@mixin padding-bottom($value) {
+    @include rfs($value, padding-bottom);
+}
+
+@mixin padding-left($value) {
+    @include rfs($value, padding-left);
+}
+
+@mixin responsive-mobile{
+    @media only screen and (max-width: 767px) {
+        @content
+    }
 }

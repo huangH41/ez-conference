@@ -1,4 +1,5 @@
 .sidebar {
+    transition: .5s;
     height: 100%;
     width: $sidebar-width;
     position: fixed;
@@ -25,4 +26,15 @@
 
 .active {
     background-color: $accent;
+}
+
+@include responsive-mobile {
+    .sidebar {
+        left: $sidebar-width * -1;
+        z-index: 999;
+    }
+    .sidebar-active {
+        transition: .5s;
+        left: 0!important;
+    }
 }

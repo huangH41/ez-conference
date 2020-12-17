@@ -6,6 +6,9 @@
     position: sticky;
     top: 0;
     z-index: 99;
+    &-hamburger{
+        display: none;
+    }
     &-title {
         display: flex;
         align-items: center;
@@ -42,4 +45,24 @@
     height: 5em;
     box-shadow: $shadow;
     margin-right: 2%;
+}
+
+@include responsive-mobile {
+    .header {
+        margin-left: 0;
+        &-hamburger{
+            display: block;
+        }
+        & .logo {
+            display: none;
+        }
+        &-icon {
+            display: none;
+        }
+    }
+    .profile{
+        &-name {
+            display: none;
+        }
+    }
 }
