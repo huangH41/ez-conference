@@ -2,6 +2,9 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~slick-carousel/slick/slick";
 
+// RFS
+@import "~rfs/scss";
+
 // Base
 @import "base/base";
 @import "base/mixins";
@@ -17,6 +20,7 @@
 @import "components/header";
 @import "components/transaction-input";
 @import "components/time-setter";
+@import "components/scheduleList";
 
 // Pages
 @import "main";

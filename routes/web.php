@@ -23,7 +23,8 @@ Route::get('/test', function() {
     return view('transaction');
 });
 
-Route::get('/transaction', 'RentalTransactionController@index');
+Route::get('/transaction', 'RentalTransactionController@getTransactionbyUserId');
+
 
 Auth::routes();
 

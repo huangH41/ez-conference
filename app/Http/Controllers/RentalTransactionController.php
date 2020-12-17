@@ -10,17 +10,19 @@ use Illuminate\Support\Facades\Auth;
 class RentalTransactionController extends Controller
 {
     public function index() {
-        $user = Auth::User();
-        $transactions = RentalTransaction::where("user_id", $user->id)->get();
-        return response()->json($transactions);
+        
     }
+    
 
     public function getAllTransaction() {
 
     }
 
-    public function getTransactionbyUserId() {
-
+    public function getTransactionbyUserId(Request $request) {
+        $search = $request->get('search');
+        $user = Auth::User();
+        $transactions = RentalTransaction::orderBy('created_at', 'DESC')->where("user_id", $user->id)->paginate(5);
+        return view('transaction', ['transactions' => $transactions]);
     }
 
     public function calendar() {
