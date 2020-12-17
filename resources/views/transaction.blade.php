@@ -21,9 +21,9 @@
                 </form>
             </div> --}}
             
-            <div class="container__table">
-                <table class="table table-hover m-3 mt-5" style="font-size: 20px; max-width: 100%;">
-                    <thead>
+            <div class="container__table m-5">
+                <table class="table table-hover mt-5" style="font-size: 14px; max-width: 100%;">
+                    <thead class="" style="background: #9561e2; color: white;">
                         <tr>
                             <th>Date</th>
                             <th>Limit Participants</th>
