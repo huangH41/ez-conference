@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div id="sidebar" class="sidebar">
     <div class="sidebar-icon active">
         <a class="sidebar-icon-container" href="{{route('home')}}">
             <img src="/assets/icons/home.svg" alt="Home Icon">

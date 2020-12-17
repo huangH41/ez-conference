@@ -1,0 +1,18 @@
+.schedule{
+    & .button-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@include responsive-mobile{
+    .schedule {
+        & .button-container{
+            flex-direction: column;
+            & div, & div a{
+                width: 100%;
+            }
+        }
+    }
+}
