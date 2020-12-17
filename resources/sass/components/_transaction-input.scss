@@ -1,0 +1,72 @@
+.tmp-container {
+    width: 48rem;
+    margin: 2rem auto;
+}
+
+.transaction-input {
+    &__container {
+        height: 100%;
+        width: 100%;
+        min-width: 48rem;
+
+        background-color: $white;
+        border-radius: $round-corner;
+        box-shadow: $shadow;
+        padding: 4rem 2rem;
+
+        @include centerized-flex;
+    }
+
+    &__input-group {
+        text-align: center;
+
+        .arrow {
+            transition: all .4s;
+            opacity: .1;
+        }
+
+        &:hover .arrow {
+            opacity: 1;
+        }
+    }
+
+    &__input-control {
+        cursor: pointer;
+    }
+
+    &__input-label {
+        height: $text-slider-height;
+        width: auto !important;
+        padding: 0 .8rem;
+        line-height: 1;
+
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+
+        cursor: default;
+    }
+
+    &__bottom-section {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+.participant-limit, .rental-duration {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 0;
+    }
+
+    &__slider {
+        max-width: 15rem;
+    }
+}

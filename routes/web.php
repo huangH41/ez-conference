@@ -18,13 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/schedule', function () {
-    return view('components.scheduleList');
-});
-
 // For development purpose
 Route::get('/test', function() {
-    return view('components.transaction-inputs.time-setter');
+    return view('main');
 });
 
 Route::get('/transaction', 'RentalTransactionController@index');

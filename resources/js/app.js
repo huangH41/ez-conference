@@ -5,7 +5,10 @@
  */
 
 require('./bootstrap');
-require('slick-carousel');
+require('slick-carousel/slick/slick');
+
+require('./components/transaction-input');
+require('./components/time-setter');
 require('./components/calendar');
 
 // window.Vue = require('vue');

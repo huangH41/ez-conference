@@ -40389,7 +40389,11 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
+__webpack_require__(/*! slick-carousel/slick/slick */ "./node_modules/slick-carousel/slick/slick.js");
+
+__webpack_require__(/*! ./components/transaction-input */ "./resources/js/components/transaction-input.js");
+
+__webpack_require__(/*! ./components/time-setter */ "./resources/js/components/time-setter.js");
 
 __webpack_require__(/*! ./components/calendar */ "./resources/js/components/calendar.js"); // window.Vue = require('vue');
 
@@ -40467,87 +40471,170 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var calModule = __webpack_require__(/*! calendar */ "./node_modules/calendar/lib/calendar.js");
+$('.calendar').ready(function () {
+  var calModule = __webpack_require__(/*! calendar */ "./node_modules/calendar/lib/calendar.js");
 
-var cal = new calModule.Calendar();
-var dateObj = new Date();
-var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-var selectedDateElement = null;
+  var cal = new calModule.Calendar();
+  var dateObj = new Date();
+  var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var selectedDateElement = null;
 
-function setCalendarDatesEventListener() {
-  document.querySelectorAll(".calendar__days > div:not([class=\"calendar__day--disabled\"])").forEach(function (el) {
-    el.addEventListener('click', function () {
-      var selectedClass = 'calendar__day--selected';
+  function setCalendarDatesEventListener() {
+    document.querySelectorAll(".calendar__days > div:not([class=\"calendar__day--disabled\"])").forEach(function (el) {
+      el.addEventListener('click', function () {
+        var selectedClass = 'calendar__day--selected';
 
-      if (selectedDateElement != null) {
-        selectedDateElement.classList.remove(selectedClass);
-      }
-
-      el.classList.add(selectedClass);
-      selectedDateElement = el;
-      document.getElementById('rentalDate').setAttribute('value', "".concat(dateObj.getFullYear(), "-").concat(dateObj.getMonth() + 1, "-").concat(selectedDateElement.innerHTML));
-    });
-  });
-}
-
-function renderCalendar() {
-  var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-  document.querySelector('.calendar__header h1').innerHTML = "".concat(monthName[dateObj.getMonth()], " ").concat(dateObj.getFullYear());
-  var dateInMonth = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
-  var calendarDays = document.querySelector('.calendar__days');
-  calendarDays.innerHTML = "";
-  var dateIdx = 0;
-
-  for (var i = 0; i < dateInMonth.length; i++) {
-    for (var j = 0; j < 7; j++) {
-      var elClass = '';
-
-      if (dateInMonth[i][j].getMonth() != dateObj.getMonth()) {
-        elClass = 'calendar__day--disabled';
-      } else if (date != null) {
-        if (date[dateIdx] == dateInMonth[i][j].getDate()) {
-          elClass = 'calendar__day--ordered';
-          dateIdx++;
+        if (selectedDateElement != null) {
+          selectedDateElement.classList.remove(selectedClass);
         }
-      }
 
-      calendarDays.innerHTML += "<div class=".concat(elClass, ">").concat(dateInMonth[i][j].getDate(), "</div>");
-    }
+        el.classList.add(selectedClass);
+        selectedDateElement = el;
+        document.getElementById('rentalDate').setAttribute('value', "".concat(dateObj.getFullYear(), "-").concat(dateObj.getMonth() + 1, "-").concat(selectedDateElement.innerHTML));
+      });
+    });
   }
 
-  setCalendarDatesEventListener();
-}
+  function renderCalendar() {
+    var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+    document.querySelector('.calendar__header h1').innerHTML = "".concat(monthName[dateObj.getMonth()], " ").concat(dateObj.getFullYear());
+    var dateInMonth = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
+    var calendarDays = document.querySelector('.calendar__days');
+    calendarDays.innerHTML = "";
+    var dateIdx = 0;
 
-function createCalendar() {
-  fetch('http://127.0.0.1:8000/calendar/data').then(function (result) {
-    return result.json();
-  }).then(function (data) {
-    var scheduledDateThisMonth = [];
-    var array = Object.values(data);
-    array.forEach(function (item) {
-      var temp = new Date(item);
+    for (var i = 0; i < dateInMonth.length; i++) {
+      for (var j = 0; j < 7; j++) {
+        var elClass = '';
 
-      if (temp.getMonth() == dateObj.getMonth()) {
-        scheduledDateThisMonth.push(temp.getDate());
+        if (dateInMonth[i][j].getMonth() != dateObj.getMonth()) {
+          elClass = 'calendar__day--disabled';
+        } else if (date != null) {
+          if (date[dateIdx] == dateInMonth[i][j].getDate()) {
+            elClass = 'calendar__day--ordered';
+            dateIdx++;
+          }
+        }
+
+        calendarDays.innerHTML += "<div class=".concat(elClass, ">").concat(dateInMonth[i][j].getDate(), "</div>");
       }
-    });
-    scheduledDateThisMonth.sort();
-    renderCalendar(scheduledDateThisMonth);
-  })["catch"](function () {
-    renderCalendar();
-  });
-}
+    }
 
-createCalendar();
-document.getElementById('cal-left-arr').addEventListener('click', function () {
-  dateObj.setMonth(dateObj.getMonth() - 1);
-  month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
+    setCalendarDatesEventListener();
+  }
+
+  function createCalendar() {
+    fetch('http://127.0.0.1:8000/calendar/data').then(function (result) {
+      return result.json();
+    }).then(function (data) {
+      var scheduledDateThisMonth = [];
+      var array = Object.values(data);
+      array.forEach(function (item) {
+        var temp = new Date(item);
+
+        if (temp.getMonth() == dateObj.getMonth()) {
+          scheduledDateThisMonth.push(temp.getDate());
+        }
+      });
+      scheduledDateThisMonth.sort();
+      renderCalendar(scheduledDateThisMonth);
+    })["catch"](function () {
+      renderCalendar();
+    });
+  }
+
   createCalendar();
+  document.getElementById('cal-left-arr').addEventListener('click', function () {
+    dateObj.setMonth(dateObj.getMonth() - 1);
+    month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
+    createCalendar();
+  });
+  document.getElementById('cal-right-arr').addEventListener('click', function () {
+    dateObj.setMonth(dateObj.getMonth() + 1);
+    month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
+    createCalendar();
+  });
 });
-document.getElementById('cal-right-arr').addEventListener('click', function () {
-  dateObj.setMonth(dateObj.getMonth() + 1);
-  month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
-  createCalendar();
+
+/***/ }),
+
+/***/ "./resources/js/components/time-setter.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/time-setter.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('.time-setter').ready(function () {
+  var rentalStartTime = "09:00";
+  $('#rental-start-time').val(rentalStartTime);
+  $('#hour-input').slick({
+    vertical: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: true,
+    initialSlide: 9,
+    prevArrow: $('#prev-hour'),
+    nextArrow: $('#next-hour'),
+    verticalSwiping: true
+  }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
+    var hour = currentSlide < 10 ? "0".concat(currentSlide) : String(currentSlide);
+    rentalStartTime = rentalStartTime.replace(/[0-9][0-9]:/, "".concat(hour, ":"));
+    $('#rental-start-time').val(rentalStartTime);
+  });
+  $('#minute-input').slick({
+    vertical: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: true,
+    prevArrow: $('#prev-minute'),
+    nextArrow: $('#next-minute'),
+    verticalSwiping: true
+  }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
+    var minute = currentSlide * 10 < 10 ? "0".concat(currentSlide) : String(currentSlide * 10);
+    rentalStartTime = rentalStartTime.replace(/:[0-9][0-9]/, ":".concat(minute));
+    $('#rental-start-time').val(rentalStartTime);
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/transaction-input.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/transaction-input.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('.participant-limit').ready(function () {
+  $('#participant-limit-input').slick({
+    vertical: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: true,
+    prevArrow: $('#prev-participant-limit'),
+    nextArrow: $('#next-participant-limit'),
+    verticalSwiping: true
+  }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
+    $('#participant-limit').val($(slick.$slides.get(currentSlide)).find('.transaction-input__input-label').html());
+  }); // initialize participant limit value
+
+  $('#participant-limit').val($('#participant-limit-input').find('.slick-active .transaction-input__input-label').html());
+});
+$('.rental-duration').ready(function () {
+  $('#rental-duration-input').slick({
+    vertical: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: true,
+    prevArrow: $('#prev-rental-duration'),
+    nextArrow: $('#next-rental-duration'),
+    verticalSwiping: true
+  }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
+    $('#rental-duration').val(currentSlide + 1);
+  }); // initialize participant limit value
+
+  $('#rental-duration').val(1);
 });
 
 /***/ }),
