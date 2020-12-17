@@ -18,10 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/schedule', function () {
-    return view('components.scheduleList');
-});
-
 // For development purpose
 Route::get('/test', function() {
     return view('transaction');
