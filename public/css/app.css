@@ -10920,18 +10920,36 @@ html {
 }
 
 .header1 {
-  font-size: 3.2rem;
+  font-size: calc(1.445rem + 2.34vw);
   font-weight: 700;
 }
 
+@media (min-width: 1200px) {
+  .header1 {
+    font-size: 3.2rem;
+  }
+}
+
 .subheader1 {
-  font-size: 2.5rem;
+  font-size: calc(1.375rem + 1.5vw);
   font-weight: 500;
 }
 
+@media (min-width: 1200px) {
+  .subheader1 {
+    font-size: 2.5rem;
+  }
+}
+
 .subheader2 {
-  font-size: 2rem;
+  font-size: calc(1.325rem + 0.9vw);
   font-weight: 500;
+}
+
+@media (min-width: 1200px) {
+  .subheader2 {
+    font-size: 2rem;
+  }
 }
 
 .body1 {
@@ -10940,8 +10958,14 @@ html {
 }
 
 .body2 {
-  font-size: 2rem;
+  font-size: calc(1.325rem + 0.9vw);
   font-weight: 400;
+}
+
+@media (min-width: 1200px) {
+  .body2 {
+    font-size: 2rem;
+  }
 }
 
 .tmp-container {
@@ -10952,7 +10976,6 @@ html {
 .calendar {
   height: 100%;
   width: 100%;
-  min-width: 48rem;
   background-color: #fcfcfc;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -10989,7 +11012,27 @@ html {
 }
 
 .calendar__body {
-  padding: 0 4rem 2rem 4rem;
+  padding-right: calc(1.525rem + 3.3vw);
+  padding-bottom: calc(1.325rem + 0.9vw);
+  padding-left: calc(1.525rem + 3.3vw);
+}
+
+@media (min-width: 1200px) {
+  .calendar__body {
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .calendar__body {
+    padding-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .calendar__body {
+    padding-left: 4rem;
+  }
 }
 
 .calendar__weekdays {
@@ -11093,12 +11136,29 @@ html {
 }
 
 .counter-number {
-  font-size: 15rem;
+  font-size: calc(2.625rem + 16.5vw);
+}
+
+@media (min-width: 1200px) {
+  .counter-number {
+    font-size: 15rem;
+  }
 }
 
 .counter-footer {
   text-align: center;
   width: 50%;
+}
+
+@media only screen and (max-width: 767px) {
+  .counter {
+    flex-direction: row;
+    height: auto;
+  }
+
+  .counter .header1:nth-child(1) {
+    display: none;
+  }
 }
 
 .sidebar {
