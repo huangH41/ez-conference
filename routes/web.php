@@ -20,11 +20,10 @@ Route::get('/', function () {
 
 // For development purpose
 Route::get('/test', function() {
-    return view('transaction');
+    return view('create-transaction');
 });
 
 Route::get('/transaction', 'RentalTransactionController@getTransactionbyUserId');
-
 
 Auth::routes();
 
