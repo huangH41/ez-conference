@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('slick-carousel');
 require('./components/calendar');
 
 // window.Vue = require('vue');

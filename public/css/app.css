@@ -10924,7 +10924,7 @@ html {
 .hero {
   font-size: 6.4rem;
   font-weight: 500;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
   color: #fd367e;
 }
 
@@ -11220,7 +11220,7 @@ html {
 
 .time-setter__container::after {
   content: "wib";
-  transform: translate(60%, 50%);
+  transform: translate(80%, 50%);
   position: absolute;
   top: 0;
   right: 0;
@@ -11247,13 +11247,21 @@ html {
 }
 
 .time-setter__input-label {
-  margin: 0.8rem 0;
-  padding: 0 2rem;
+  height: 8rem;
+  width: auto !important;
+  padding: 0 0.8rem;
   line-height: 1;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
   cursor: default;
 }
 
-.time-setter__input-group:not(:last-child) > .time-setter__input-label {
+.time-setter__slider {
+  max-width: 10rem;
+}
+
+.time-setter__input-group:not(:last-child) > .time-setter__slider {
   border-right: 1px solid #a8a8a8;
 }
 

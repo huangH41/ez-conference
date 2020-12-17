@@ -12,7 +12,7 @@
         position: relative;
         &::after {
             content: "wib";
-            transform: translate(60%, 50%);
+            transform: translate(80%, 50%);
             position: absolute;
             top: 0;
             right: 0;
@@ -41,13 +41,23 @@
     }
 
     &__input-label {
-        margin: .8rem 0;
-        padding: 0 2rem;
+        height: $text-slider-height;
+        width: auto !important;
+        padding: 0 .8rem;
         line-height: 1;
+
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+
         cursor: default;
     }
 
-    &__input-group:not(:last-child) > &__input-label {
+    &__slider {
+        max-width: 10rem;
+    }
+
+    &__input-group:not(:last-child) > &__slider {
         border-right: 1px solid $black-light;
     }
 }
