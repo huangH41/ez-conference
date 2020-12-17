@@ -12,7 +12,7 @@
         background-color: $white;
         border-radius: $round-corner;
         box-shadow: $shadow;
-        padding: 4rem 2rem;
+        padding: 4rem;
 
         @include centerized-flex;
     }
@@ -46,12 +46,6 @@
 
         cursor: default;
     }
-
-    &__bottom-section {
-        margin-top: 2rem;
-        display: flex;
-        justify-content: space-evenly;
-    }
 }
 
 .participant-limit, .rental-duration {
@@ -70,3 +64,23 @@
         max-width: 15rem;
     }
 }
+
+.rental-duration {
+    &__container {
+        position: relative;
+
+        &::after {
+            content: "hours";
+            transform: translate(40%, 100%);
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            font-weight: $font-weight-medium;
+            color: $black;
+        }
+    }
+}
+

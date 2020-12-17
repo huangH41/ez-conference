@@ -11317,7 +11317,7 @@ html {
   background-color: #fcfcfc;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  padding: 4rem 2rem;
+  padding: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11351,12 +11351,6 @@ html {
   cursor: default;
 }
 
-.transaction-input__bottom-section {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: space-evenly;
-}
-
 .participant-limit,
 .rental-duration {
   display: flex;
@@ -11375,6 +11369,22 @@ html {
 .participant-limit__slider,
 .rental-duration__slider {
   max-width: 15rem;
+}
+
+.rental-duration__container {
+  position: relative;
+}
+
+.rental-duration__container::after {
+  content: "hours";
+  transform: translate(40%, 100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #141414;
 }
 
 .time-setter {

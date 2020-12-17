@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 // For development purpose
 Route::get('/test', function() {
-    return view('main');
+    return view('transaction');
 });
 
 Route::get('/transaction', 'RentalTransactionController@index');
