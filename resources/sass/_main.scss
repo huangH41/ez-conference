@@ -2,8 +2,30 @@ main {
     & .home {
         width: 100%;
         & .content {
+            width: auto;
             margin-left: $sidebar-width;
-            padding: 1% 2%;
+        }
+    }
+}
+
+.overlay{
+    transition: .5s;
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #2222227a;
+    z-index: 998;
+}
+
+@include responsive-mobile {
+    main {
+        & .home {
+            & .content {
+                margin-left: 0;
+            }
         }
     }
 }

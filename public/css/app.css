@@ -10982,11 +10982,13 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .calendar__header {
   margin: 0 1.2rem 1.2rem 1.2rem;
   padding: 2rem;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -11162,6 +11164,7 @@ html {
 }
 
 .sidebar {
+  transition: 0.5s;
   height: 100%;
   width: 7em;
   position: fixed;
@@ -11184,6 +11187,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .sidebar-icon-container img {
@@ -11195,6 +11199,18 @@ html {
   background-color: #fd367e;
 }
 
+@media only screen and (max-width: 767px) {
+  .sidebar {
+    left: -7em;
+    z-index: 999;
+  }
+
+  .sidebar-active {
+    transition: 0.5s;
+    left: 0 !important;
+  }
+}
+
 .header {
   display: flex;
   padding: 1em 2vw;
@@ -11204,6 +11220,10 @@ html {
   position: sticky;
   top: 0;
   z-index: 99;
+}
+
+.header-hamburger {
+  display: none;
 }
 
 .header-title {
@@ -11247,12 +11267,69 @@ html {
   margin-right: 2%;
 }
 
+@media only screen and (max-width: 767px) {
+  .header {
+    margin-left: 0;
+  }
+
+  .header-hamburger {
+    display: block;
+  }
+
+  .header .logo {
+    display: none;
+  }
+
+  .header-icon {
+    display: none;
+  }
+
+  .profile-name {
+    display: none;
+  }
+}
+
+.schedule .button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .schedule .button-container {
+    flex-direction: column;
+  }
+
+  .schedule .button-container div,
+  .schedule .button-container div a {
+    width: 100%;
+  }
+}
+
 main .home {
   width: 100%;
 }
 
 main .home .content {
+  width: auto;
   margin-left: 7em;
-  padding: 1% 2%;
+}
+
+.overlay {
+  transition: 0.5s;
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #2222227a;
+  z-index: 998;
+}
+
+@media only screen and (max-width: 767px) {
+  main .home .content {
+    margin-left: 0;
+  }
 }
 
