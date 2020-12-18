@@ -22,6 +22,6 @@
             @endfor
         </div>
 
-        <input class="d-none" type="date" name="rentalDate" id="rentalDate" value="test">
+        <input class="d-none" type="date" name="rentalDate" id="rentalDate" value="">
     </div>
 </div>

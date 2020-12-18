@@ -9,10 +9,9 @@
     <title>Document</title>
 </head>
 <body>
-    {{-- @include('components.header') --}}
-    {{-- @include('components.sidebar') --}}
-    @include('components.calendar')
-    {{-- @include('components.counter') --}}
+    <div class="tmp-container">
+        @include('components.transaction-input')
+    </div>
 </body>
 
 <script src="/js/app.js"></script>
