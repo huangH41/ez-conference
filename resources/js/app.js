@@ -10,6 +10,7 @@ require('slick-carousel/slick/slick');
 require('./components/transaction-input');
 require('./components/time-setter');
 require('./components/calendar');
+require('./components/header');
 
 // window.Vue = require('vue');
 

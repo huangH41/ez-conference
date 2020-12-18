@@ -11023,10 +11023,16 @@ html {
 }
 
 .hero {
-  font-size: 6.4rem;
+  font-size: calc(1.765rem + 6.18vw);
   font-weight: 500;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
   color: #fd367e;
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    font-size: 6.4rem;
+  }
 }
 
 .header1 {
@@ -11156,6 +11162,7 @@ html {
   padding-right: calc(1.525rem + 3.3vw);
   padding-bottom: calc(1.325rem + 0.9vw);
   padding-left: calc(1.525rem + 3.3vw);
+  min-width: 100%;
 }
 
 @media (min-width: 1200px) {
@@ -11432,15 +11439,21 @@ html {
 .transaction-price__container {
   height: 100%;
   width: 100%;
-  min-width: 48rem;
   background-color: #fcfcfc;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  padding: 4rem;
+  padding: calc(1.525rem + 3.3vw);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media (min-width: 1200px) {
+  .transaction-input__container,
+  .transaction-price__container {
+    padding: 4rem;
+  }
 }
 
 .transaction-price__content .hero::after,
@@ -11568,13 +11581,14 @@ html {
 
 .schedule .button-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
 }
 
 @media only screen and (max-width: 767px) {
   .schedule .button-container {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .schedule .button-container div,
@@ -11583,11 +11597,11 @@ html {
   }
 }
 
-main .home {
+main .wrapper {
   width: 100%;
 }
 
-main .home .content {
+main .wrapper .content {
   width: auto;
   margin-left: 7em;
 }
@@ -11605,8 +11619,12 @@ main .home .content {
 }
 
 @media only screen and (max-width: 767px) {
-  main .home .content {
+  main .wrapper .content {
     margin-left: 0;
+  }
+
+  main .rent .button--main {
+    width: 100%;
   }
 }
 

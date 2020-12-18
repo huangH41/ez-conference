@@ -2,17 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Zoom;
 use Illuminate\Http\Request;
 use App\RentalTransaction;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Ramsey\Uuid\Type\Integer;
 
 class RentalTransactionController extends Controller
 {
     public function index() {
-        
+        $zooms = Zoom::all();
+        return view('create-transaction',['zooms' => $zooms]);
     }
-    
+
+    public function create(Request $request) {
+        $zoom = ZoomController::getZoomByParticipant($request->participantLimit);
+        $transaction = new RentalTransaction([
+           'zoom_id' => $zoom->id,
+            'user_id' => Auth::id(),
+            'date' => $request->rentalDate,
+            'time' => $request->rentalStartTime,
+            'duration' => $request->rentalDuration
+        ]);
+        $transaction->save();
+        return redirect('/home')->with('success','You have successfully created a rental schedule');
+    }
 
     public function getAllTransaction() {
 

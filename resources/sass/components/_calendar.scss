@@ -45,6 +45,7 @@
         @include padding-right(4rem);
         @include padding-bottom(2rem);
         @include padding-left(4rem);
+        min-width: 100%;
     }
 
     &__weekdays {

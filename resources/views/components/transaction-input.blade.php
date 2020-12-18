@@ -12,21 +12,21 @@
                         <div class="transaction-input__input-control" id="next-participant-limit">
                             <img class="arrow arrow__vertical--regular" src="/assets/icons/arrow-up.svg" alt="Top">
                         </div>
-    
+
                         <div class="participant-limit__slider">
                             <div id="participant-limit-input">
-                                <div class="transaction-input__input-label hero">100</div>
-                                <div class="transaction-input__input-label hero">200</div>
-                                <div class="transaction-input__input-label hero">300</div>
+                                @foreach($zooms as $zoom)
+                                    <div class="transaction-input__input-label hero">{{$zoom->participant}}</div>
+                                @endforeach
                             </div>
                         </div>
-    
+
                         <div class="transaction-input__input-control" id="prev-participant-limit">
                             <img class="arrow arrow__vertical--regular" src="/assets/icons/arrow-down.svg" alt="Top">
                         </div>
                     </div>
                 </div>
-    
+
                 <input name="participantLimit" id="participant-limit" type="number" class="d-none">
             </div>
         </div>

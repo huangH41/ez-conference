@@ -1,8 +1,7 @@
 .schedule{
     & .button-container{
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-end;
     }
 }
 
@@ -10,6 +9,8 @@
     .schedule {
         & .button-container{
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             & div, & div a{
                 width: 100%;
             }
