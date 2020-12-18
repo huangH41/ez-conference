@@ -6,21 +6,8 @@
 
 @section('content')
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <div class="home">
-        <div class="content">
-
-            {{-- <div class="container__input m-3 mb-5 mx-auto">
-                <form action="/transaction" method="GET" class="d-flex" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <input type="search" name="search" placeholder="Search Transaction" class="form-control mr-2" 
-                        style="font-size: 18px; border-radius: 10px; padding: 25px;">
-                    <button type="submit" class="btn" 
-                            style="font-size: 16px; background-color:#f66d9b; color: white; border-radius: 10px; font-weight: bolder;">
-                                Search
-                    </button>
-                </form>
-            </div> --}}
-            
+    <div class="wrapper transaction">
+        <div class="content container-fluid">
             <div class="container__table m-5">
                 <table class="table table-hover mt-5" style="font-size: 14px; max-width: 100%;">
                     <thead class="" style="background: #9561e2; color: white;">
@@ -36,7 +23,7 @@
                     <tbody>
                         @foreach ($transactions as $t)
                             <tr>
-                                <td>{{ $t->created_at->format('j M Y') }}</td>
+                                <td>{{ date('j M Y', strtotime($t->created_at))}}</td>
                                 <td>{{ $t->zoom->participant .' participant(s)' }}</td>
                                 <td>{{ date('h:i A', strtotime($t->date)) }}</td>
                                 <td>{{ $t->time }}</td>
