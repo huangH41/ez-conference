@@ -25,6 +25,11 @@
                         </div>
                     </div>
                     <hr/>
+                    <a class="dropdown-item body1" onclick="event.preventDefault();
+                        window.location.href = '{{route('rentHistory')}}';">
+                        Transaction History
+                    </a>
+                    <hr/>
                     <a class="dropdown-item body1" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
