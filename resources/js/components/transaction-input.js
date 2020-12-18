@@ -1,5 +1,9 @@
 import {changePrice} from "./price";
 
+$('.transaction-input__container').ready(function() {
+    showInputWhenReady();
+});
+
 $('.participant-limit').ready(function() {
 
     $('#participant-limit-input').slick({
@@ -41,3 +45,14 @@ $('.rental-duration').ready(function() {
     // initialize participant limit value
     $('#rental-duration').val(1);
 });
+
+function showInputWhenReady() {
+    document.onreadystatechange = function() {
+        console.log('test')
+        if(document.readyState === 'complete') {
+            document.querySelector('.time-setter').classList.remove('invisible');
+            document.querySelector('.participant-limit').classList.remove('invisible');
+            document.querySelector('.rental-duration').classList.remove('invisible');
+        }
+    }
+}
