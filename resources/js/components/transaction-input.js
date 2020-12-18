@@ -1,3 +1,5 @@
+import {changePrice} from "./price";
+
 $('.participant-limit').ready(function() {
 
     $('#participant-limit-input').slick({
@@ -12,6 +14,7 @@ $('.participant-limit').ready(function() {
         $('#participant-limit').val(
             $(slick.$slides.get(currentSlide)).find('.transaction-input__input-label').html()
         );
+        changePrice();
     });
 
     // initialize participant limit value
@@ -32,6 +35,7 @@ $('.rental-duration').ready(function() {
         verticalSwiping: true,
     }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
         $('#rental-duration').val(currentSlide + 1);
+        changePrice();
     });
 
     // initialize participant limit value

@@ -40395,7 +40395,9 @@ __webpack_require__(/*! ./components/transaction-input */ "./resources/js/compon
 
 __webpack_require__(/*! ./components/time-setter */ "./resources/js/components/time-setter.js");
 
-__webpack_require__(/*! ./components/calendar */ "./resources/js/components/calendar.js"); // window.Vue = require('vue');
+__webpack_require__(/*! ./components/calendar */ "./resources/js/components/calendar.js");
+
+__webpack_require__(/*! ./components/header */ "./resources/js/components/header.js"); // window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -40464,12 +40466,30 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/components/apiConfig.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/apiConfig.js ***!
+  \**********************************************/
+/*! exports provided: BASE_URL */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_URL", function() { return BASE_URL; });
+var BASE_URL = "http://127.0.0.1:8000";
+
+/***/ }),
+
 /***/ "./resources/js/components/calendar.js":
 /*!*********************************************!*\
   !*** ./resources/js/components/calendar.js ***!
   \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _apiConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiConfig */ "./resources/js/components/apiConfig.js");
 
 $('.calendar').ready(function () {
   var calModule = __webpack_require__(/*! calendar */ "./node_modules/calendar/lib/calendar.js");
@@ -40524,7 +40544,7 @@ $('.calendar').ready(function () {
   }
 
   function createCalendar() {
-    fetch('http://127.0.0.1:8000/calendar/data').then(function (result) {
+    fetch(_apiConfig__WEBPACK_IMPORTED_MODULE_0__["BASE_URL"] + '/calendar/data').then(function (result) {
       return result.json();
     }).then(function (data) {
       var scheduledDateThisMonth = [];
@@ -40546,15 +40566,75 @@ $('.calendar').ready(function () {
   createCalendar();
   document.getElementById('cal-left-arr').addEventListener('click', function () {
     dateObj.setMonth(dateObj.getMonth() - 1);
-    month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
+    var month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
     createCalendar();
   });
   document.getElementById('cal-right-arr').addEventListener('click', function () {
     dateObj.setMonth(dateObj.getMonth() + 1);
-    month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
+    var month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
     createCalendar();
   });
 });
+
+/***/ }),
+
+/***/ "./resources/js/components/header.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/header.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+document.getElementById('hamburger').addEventListener('click', function () {
+  document.getElementById('sidebar').classList.add('sidebar-active');
+  document.getElementById('overlay').classList.add('d-block');
+});
+document.getElementById('overlay').addEventListener('click', function () {
+  document.getElementById('sidebar').classList.remove('sidebar-active');
+  document.getElementById('overlay').classList.remove('d-block');
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/price.js":
+/*!******************************************!*\
+  !*** ./resources/js/components/price.js ***!
+  \******************************************/
+/*! exports provided: changePrice */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changePrice", function() { return changePrice; });
+/* harmony import */ var _apiConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiConfig */ "./resources/js/components/apiConfig.js");
+
+
+var insert = function insert(str, index, value) {
+  return str.substr(0, index) + value + str.substr(index);
+};
+
+var changePrice = function changePrice() {
+  var rentalDuration = document.getElementById('rental-duration').value;
+  var participantLimit = document.getElementById('participant-limit').value;
+  fetch("".concat(_apiConfig__WEBPACK_IMPORTED_MODULE_0__["BASE_URL"], "/rent/price?rentalDuration=").concat(rentalDuration, "&participantLimit=").concat(participantLimit)).then(function (result) {
+    return result.json();
+  }).then(function (data) {
+    var str = data === null || data === void 0 ? void 0 : data.price.toString();
+    var len = str.length;
+    var mod = len % 3;
+    var dividable = len - mod;
+
+    while (dividable > 0) {
+      dividable -= 3;
+      if (dividable + mod === 0) continue;
+      str = insert(str, dividable + mod, ".");
+    }
+
+    document.getElementById('rent-price').innerHTML = str;
+  })["catch"](function () {
+    alert('Error, Please Contact Us to report the problem');
+  });
+};
 
 /***/ }),
 
@@ -40603,8 +40683,12 @@ $('.time-setter').ready(function () {
 /*!******************************************************!*\
   !*** ./resources/js/components/transaction-input.js ***!
   \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _price__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./price */ "./resources/js/components/price.js");
 
 $('.participant-limit').ready(function () {
   $('#participant-limit-input').slick({
@@ -40617,6 +40701,7 @@ $('.participant-limit').ready(function () {
     verticalSwiping: true
   }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
     $('#participant-limit').val($(slick.$slides.get(currentSlide)).find('.transaction-input__input-label').html());
+    Object(_price__WEBPACK_IMPORTED_MODULE_0__["changePrice"])();
   }); // initialize participant limit value
 
   $('#participant-limit').val($('#participant-limit-input').find('.slick-active .transaction-input__input-label').html());
@@ -40632,6 +40717,7 @@ $('.rental-duration').ready(function () {
     verticalSwiping: true
   }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
     $('#rental-duration').val(currentSlide + 1);
+    Object(_price__WEBPACK_IMPORTED_MODULE_0__["changePrice"])();
   }); // initialize participant limit value
 
   $('#rental-duration').val(1);
@@ -40657,8 +40743,8 @@ $('.rental-duration').ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Mata kuliah\Semester 5\Web Programming\Project kelas kecil\ezConference\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Mata kuliah\Semester 5\Web Programming\Project kelas kecil\ezConference\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\randi\Documents\Codes\Web\ez-conference\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\randi\Documents\Codes\Web\ez-conference\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

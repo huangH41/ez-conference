@@ -1,15 +1,5 @@
 <div class="header">
     <img id="hamburger" role="button" src="{{asset('/assets/icons/hamburger.svg')}}" class="header-hamburger mx-3" />
-    <script>
-        document.getElementById('hamburger').addEventListener('click', () => {
-            document.getElementById('sidebar').classList.add('sidebar-active');
-            document.getElementById('overlay').classList.add('d-block');
-        });
-        document.getElementById('overlay').addEventListener('click', () => {
-            document.getElementById('sidebar').classList.remove('sidebar-active');
-            document.getElementById('overlay').classList.remove('d-block');
-        });
-    </script>
     <img src="/assets/logo.png" alt="logo" class="logo">
     <div class="header-title">
         <img class="header-icon" src="/assets/icons/home-accent.svg" alt="Home Accent Icon">

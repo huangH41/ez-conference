@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="home">
+    <div class="wrapper home">
         <div class="content container-fluid">
             @if(session()->has('success'))
                 <div class="alert alert-success body1">{{session()->get('success')}}</div>

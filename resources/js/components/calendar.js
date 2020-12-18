@@ -1,3 +1,5 @@
+import {BASE_URL} from "./apiConfig";
+
 $('.calendar').ready(function () {
     const calModule = require('calendar');
     const cal = new calModule.Calendar();
@@ -61,7 +63,7 @@ $('.calendar').ready(function () {
     }
 
     function createCalendar() {
-        fetch('http://127.0.0.1:8000/calendar/data')
+        fetch(BASE_URL+'/calendar/data')
             .then((result) => {
                 return result.json();
             })
@@ -87,14 +89,14 @@ $('.calendar').ready(function () {
 
     document.getElementById('cal-left-arr').addEventListener('click', () => {
         dateObj.setMonth(dateObj.getMonth() - 1);
-        month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
+        let month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
 
         createCalendar()
     });
 
     document.getElementById('cal-right-arr').addEventListener('click', () => {
         dateObj.setMonth(dateObj.getMonth() + 1);
-        month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
+        let month = cal.monthDates(dateObj.getFullYear(), dateObj.getMonth());
 
         createCalendar();
     });

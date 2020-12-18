@@ -1,12 +1,11 @@
 .transaction-input__container, .transaction-price__container {
     height: 100%;
     width: 100%;
-    min-width: 48rem;
 
     background-color: $white;
     border-radius: $round-corner;
     box-shadow: $shadow;
-    padding: 4rem;
+    @include padding(4rem);
 
     @include centerized-flex;
 }
@@ -27,12 +26,12 @@
 
         .hero{
             position: relative;
-            
+
             &::after {
                 content: "Rp";
                 transform: translateX(-100%);
                 font-size: 2.4rem;
-    
+
                 left: 0;
             }
         }

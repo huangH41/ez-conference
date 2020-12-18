@@ -17,13 +17,13 @@
                         <div class="col my-auto d-flex justify-content-between">
                             <div class="px-3">
                                 <p class="card-text body1 m-0">Date: {{date('l j M Y', strtotime($rent->date))}}</p>
-                                <p class="card-text body1 m-0">Participant Limit: 100</p>
+                                <p class="card-text body1 m-0">Participant Limit: {{$rent->zoom->participant}}</p>
                                 <p class="card-text body1 m-0">Rental Start Time: {{date('h:i A',strtotime($rent->time))}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                @if($rent->join_link != null && $rent->start_link != null)
+                @if(date('j M Y',strtotime($rent->date)) == date('j M Y',time()))
                 <div class="col-12 col-sm-5 py-2 button-container">
                     @if($rent->join_link != null && $rent->start_link != null)
                         <div class="p-1">

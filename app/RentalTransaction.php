@@ -15,6 +15,6 @@ class RentalTransaction extends Model
     }
 
     protected $fillable = [
-      'start_link', 'join_link',
+      'start_link', 'join_link', 'zoom_id', 'user_id', 'date', 'time', 'duration'
     ];
 }

@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+@mixin padding($value) {
+    @include rfs($value, padding);
+}
+
 @mixin padding-top($value) {
     @include rfs($value, padding-top);
 }

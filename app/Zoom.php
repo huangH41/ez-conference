@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Zoom extends Model
 {
     public function transaction() {
-        return $this->hasMany(Transaction::class);
+        return $this->hasMany(RentalTransaction::class);
     }
 }

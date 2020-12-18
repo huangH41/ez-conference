@@ -28,7 +28,7 @@ class ZoomController extends Controller
                 "topic" => "Ez-Meet ".$rent->id." ".$rent->user->username,
                 "type" => "2",
                 "start_time" => $rent->date."T".$rent->time."Z",
-                "duration" => "120",
+                "duration" => $rent->duration,
                 "schedule_for" => $userId,
                 "timezone" => "Asia/Jakarta",
                 "password" => "eztomeet",
@@ -60,5 +60,15 @@ class ZoomController extends Controller
             return true;
         }
         else return false;
+    }
+
+    public function calculatePrice(Request $request){
+        $zoom = self::getZoomByParticipant($request->participantLimit);
+        $price = $request->rentalDuration * $zoom->price;
+        return response()->json(['price' => $price]);
+    }
+
+    public static function getZoomByParticipant($participant){
+        return Zoom::all()->where('participant','=',(int)$participant)->first();
     }
 }

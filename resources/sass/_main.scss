@@ -1,5 +1,5 @@
 main {
-    & .home {
+    & .wrapper {
         width: 100%;
         & .content {
             width: auto;
@@ -22,9 +22,14 @@ main {
 
 @include responsive-mobile {
     main {
-        & .home {
+        & .wrapper {
             & .content {
                 margin-left: 0;
+            }
+        }
+        & .rent {
+            & .button--main{
+                width: 100%;
             }
         }
     }
