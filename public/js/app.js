@@ -40690,6 +40690,9 @@ $('.time-setter').ready(function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _price__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./price */ "./resources/js/components/price.js");
 
+$('.transaction-input__container').ready(function () {
+  showInputWhenReady();
+});
 $('.participant-limit').ready(function () {
   $('#participant-limit-input').slick({
     vertical: true,
@@ -40723,6 +40726,18 @@ $('.rental-duration').ready(function () {
   $('#rental-duration').val(1);
 });
 
+function showInputWhenReady() {
+  document.onreadystatechange = function () {
+    console.log('test');
+
+    if (document.readyState === 'complete') {
+      document.querySelector('.time-setter').classList.remove('invisible');
+      document.querySelector('.participant-limit').classList.remove('invisible');
+      document.querySelector('.rental-duration').classList.remove('invisible');
+    }
+  };
+}
+
 /***/ }),
 
 /***/ "./resources/sass/app.scss":
@@ -40743,8 +40758,8 @@ $('.rental-duration').ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\randi\Documents\Codes\Web\ez-conference\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\randi\Documents\Codes\Web\ez-conference\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Mata kuliah\Semester 5\Web Programming\Project kelas kecil\ezConference\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Mata kuliah\Semester 5\Web Programming\Project kelas kecil\ezConference\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
