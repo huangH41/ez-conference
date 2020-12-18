@@ -1,6 +1,14 @@
 .header {
     display: flex;
-    margin: 1% 0 2% 0;
+    padding: 1em 2vw;
+    background-color: $white;
+    margin-left: $sidebar-width;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    &-hamburger{
+        display: none;
+    }
     &-title {
         display: flex;
         align-items: center;
@@ -24,6 +32,11 @@
         margin-left: 5%;
         width: 5em;
         height: 5em;
+        &-detail {
+            margin: 0;
+            width: 3em;
+            height: 3em;
+        }
     }
 }
 
@@ -32,4 +45,24 @@
     height: 5em;
     box-shadow: $shadow;
     margin-right: 2%;
+}
+
+@include responsive-mobile {
+    .header {
+        margin-left: 0;
+        &-hamburger{
+            display: block;
+        }
+        & .logo {
+            display: none;
+        }
+        &-icon {
+            display: none;
+        }
+    }
+    .profile{
+        &-name {
+            display: none;
+        }
+    }
 }

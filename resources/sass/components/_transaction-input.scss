@@ -1,0 +1,102 @@
+.transaction-input__container, .transaction-price__container {
+    height: 100%;
+    width: 100%;
+
+    background-color: $white;
+    border-radius: $round-corner;
+    box-shadow: $shadow;
+    @include padding(4rem);
+
+    @include centerized-flex;
+}
+
+.transaction-price__content .hero::after, .rental-duration__container::after {
+    position: absolute;
+    top: 0;
+
+    text-transform: uppercase;
+    font-weight: $font-weight-medium;
+    color: $black;
+}
+
+.transaction-price {
+    &__content {
+        @include centerized-flex;
+        align-items: center;
+
+        .hero{
+            position: relative;
+
+            &::after {
+                content: "Rp";
+                transform: translateX(-100%);
+                font-size: 2.4rem;
+
+                left: 0;
+            }
+        }
+    }
+}
+
+.transaction-input {
+    &__input-group {
+        text-align: center;
+
+        .arrow {
+            transition: all .4s;
+            opacity: .1;
+        }
+
+        &:hover .arrow {
+            opacity: 1;
+        }
+    }
+
+    &__input-control {
+        cursor: pointer;
+    }
+
+    &__input-label {
+        height: $text-slider-height;
+        width: auto !important;
+        padding: 0 .8rem;
+        line-height: 1;
+
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+
+        cursor: default;
+    }
+}
+
+.participant-limit, .rental-duration {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 0;
+    }
+
+    &__slider {
+        max-width: 15rem;
+    }
+}
+
+.rental-duration {
+    &__container {
+        position: relative;
+
+        &::after {
+            content: "hours";
+            transform: translate(40%, 100%);
+            font-size: 1.6rem;
+
+            right: 0;
+        }
+    }
+}

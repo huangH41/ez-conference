@@ -1,6 +1,7 @@
 .sidebar {
+    transition: .5s;
     height: 100%;
-    width: 5%;
+    width: $sidebar-width;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -10,10 +11,30 @@
     &-icon {
         display: flex;
         justify-content: center;
-        padding: 1.5em;
+        padding: 1em;
+        &-container {
+            width: 5em;
+            height: 5em;
+            @include centerized-flex;
+            & img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
     }
 }
 
 .active {
     background-color: $accent;
+}
+
+@include responsive-mobile {
+    .sidebar {
+        left: $sidebar-width * -1;
+        z-index: 999;
+    }
+    .sidebar-active {
+        transition: .5s;
+        left: 0!important;
+    }
 }

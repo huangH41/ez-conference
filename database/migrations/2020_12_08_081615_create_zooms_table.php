@@ -17,6 +17,7 @@ class CreateZoomsTable extends Migration
             $table->increments('id');
             $table->integer('participant');
             $table->integer('price');
+            $table->string('zoom_user_id');
             $table->timestamps();
         });
     }

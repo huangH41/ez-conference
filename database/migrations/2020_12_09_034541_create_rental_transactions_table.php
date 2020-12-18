@@ -20,6 +20,8 @@ class CreateRentalTransactionsTable extends Migration
             $table->date('date');
             $table->time('time');
             $table->integer('duration');
+            $table->longText('start_link')->nullable();
+            $table->string('join_link')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('zoom_id')->references('id')->on('zooms')->onDelete('cascade');
