@@ -5,7 +5,7 @@
         </a>
     </div>
     <div class="sidebar-icon @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'rent') active @endif">
-        <a class="sidebar-icon-container" href="{{route('rent')}}">
+        <a onclick="localStorage.clear();" class="sidebar-icon-container" href="{{route('rent')}}">
             <img src="/assets/icons/rent.svg" alt="Home Icon">
         </a>
     </div>
