@@ -10,7 +10,7 @@
             <form method="post" action="{{route('createRent')}}">
                 @csrf
                 <div class="row">
-                    <div class="col-md-5 mb-4">
+                    <div class="col-md-5 mb-4 input-col">
                         @include('components.transaction-input',['zooms' => $zooms])
                     </div>
                     <div class="col-md-7 mb-4">
