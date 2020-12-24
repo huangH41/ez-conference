@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ZoomRequest;
 use App\RentalTransaction;
 use App\Zoom;
 use http\Env;
@@ -10,6 +11,45 @@ use Illuminate\Support\Facades\Http;
 
 class ZoomController extends Controller
 {
+    public function index() {
+        $zooms = Zoom::all();
+        return view('admin.zooms', compact('zooms'));
+    }
+
+    public function insertZoomView() {
+        return view('admin.insert-zoom');
+    }
+
+    public function insertZoomAcc(ZoomRequest $request) {
+        Zoom::create([
+            'participant' => $request->participant,
+            'price' => $request->price,
+            'zoom_user_id' => $request->zoomUserId
+        ]);
+
+        return back();
+    }
+
+    public function updateZoomView($id) {
+        $zoom = Zoom::find($id);
+        return view('admin.update-zoom', compact('zoom'));
+    }
+
+    public function updateZoomAcc(ZoomRequest $request, $id) {
+        Zoom::find($id)->update([
+            'participant' => $request->participant,
+            'price' => $request->price,
+            'zoom_user_id' => $request->zoomUserId
+        ]);
+
+        return back();
+    }
+
+    public function deleteZoomAcc($id) {
+        Zoom::find($id)->delete();
+        return back();
+    }
+
     public function create($id)
     {
         $rent = RentalTransaction::all()->find($id);
