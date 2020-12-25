@@ -1,4 +1,4 @@
-<div class="time-setter">
+<div class="time-setter invisible">
     <h1 class="subheader2">Rental Start Time</h1>
     <div class="time-setter__container">
         <div class="transaction-input__input-group">

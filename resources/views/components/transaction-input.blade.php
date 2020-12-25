@@ -1,11 +1,11 @@
 <div class="transaction-input__container">
     @include('components.transaction-inputs.time-setter')
 
-    <div class="row mt-4">
+    <div class="row mt-4 w-100">
 
         {{-- Participan Limit --}}
         <div class="col-md-6 pr-md-0">
-            <div class="participant-limit">
+            <div class="participant-limit invisible">
                 <h1 class="subheader2">Participant Limit</h1>
                 <div class="participant-limit__container">
                     <div class="transaction-input__input-group">
@@ -33,7 +33,7 @@
 
         <div class="col-md-6 pl-md-0">
             {{-- Rental Duration --}}
-            <div class="rental-duration">
+            <div class="rental-duration invisible">
                 <h1 class="subheader2">Rental Duration</h1>
                 <div class="rental-duration__container">
                     <div class="transaction-input__input-group">
