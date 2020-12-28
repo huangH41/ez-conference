@@ -9,8 +9,20 @@
         <div class="content container-fluid">
             <form method="post" action="{{route('createRent')}}">
                 @csrf
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <h6 class="body1">There are an error(s)</h6>
+                        <div class="container-fluid">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li class="body1">{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                @endif
                 <div class="row">
-                    <div class="col-md-5 mb-4">
+                    <div class="col-md-5 mb-4 input-col">
                         @include('components.transaction-input',['zooms' => $zooms])
                     </div>
                     <div class="col-md-7 mb-4">

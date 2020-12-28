@@ -11626,5 +11626,9 @@ main .wrapper .content {
   main .rent .button--main {
     width: 100%;
   }
+
+  main .rent .input-col {
+    order: 1;
+  }
 }
 

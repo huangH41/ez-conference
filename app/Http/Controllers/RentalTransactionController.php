@@ -17,6 +17,11 @@ class RentalTransactionController extends Controller
     }
 
     public function create(Request $request) {
+        $request->validate([
+           'rentalDate' => 'required|date',
+           'rentalStartTime' => 'required',
+           'rentalDuration' => 'required|numeric|min:1'
+        ]);
         $zoom = ZoomController::getZoomByParticipant($request->participantLimit);
         $transaction = new RentalTransaction([
            'zoom_id' => $zoom->id,

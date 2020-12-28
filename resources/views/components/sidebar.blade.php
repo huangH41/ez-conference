@@ -1,4 +1,4 @@
-<div id="sidebar" class="sidebar">
+    <div id="sidebar" class="sidebar">
     @if(Auth::user()->role == 'user')
     <div class="sidebar-icon @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'home') active @endif">
         <a class="sidebar-icon-container" href="{{route('home')}}">

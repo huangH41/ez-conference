@@ -40614,26 +40614,33 @@ var insert = function insert(str, index, value) {
 };
 
 var changePrice = function changePrice() {
+  var memo = {};
   var rentalDuration = document.getElementById('rental-duration').value;
   var participantLimit = document.getElementById('participant-limit').value;
-  fetch("".concat(_apiConfig__WEBPACK_IMPORTED_MODULE_0__["BASE_URL"], "/rent/price?rentalDuration=").concat(rentalDuration, "&participantLimit=").concat(participantLimit)).then(function (result) {
-    return result.json();
-  }).then(function (data) {
-    var str = data === null || data === void 0 ? void 0 : data.price.toString();
-    var len = str.length;
-    var mod = len % 3;
-    var dividable = len - mod;
 
-    while (dividable > 0) {
-      dividable -= 3;
-      if (dividable + mod === 0) continue;
-      str = insert(str, dividable + mod, ".");
-    }
+  if (localStorage.getItem("".concat(rentalDuration).concat(participantLimit)) != null) {
+    document.getElementById('rent-price').innerHTML = localStorage.getItem("".concat(rentalDuration).concat(participantLimit));
+  } else {
+    fetch("".concat(_apiConfig__WEBPACK_IMPORTED_MODULE_0__["BASE_URL"], "/rent/price?rentalDuration=").concat(rentalDuration, "&participantLimit=").concat(participantLimit)).then(function (result) {
+      return result.json();
+    }).then(function (data) {
+      var str = data === null || data === void 0 ? void 0 : data.price.toString();
+      var len = str.length;
+      var mod = len % 3;
+      var dividable = len - mod;
 
-    document.getElementById('rent-price').innerHTML = str;
-  })["catch"](function () {
-    alert('Error, Please Contact Us to report the problem');
-  });
+      while (dividable > 0) {
+        dividable -= 3;
+        if (dividable + mod === 0) continue;
+        str = insert(str, dividable + mod, ".");
+      }
+
+      localStorage.setItem("".concat(rentalDuration).concat(participantLimit), str);
+      document.getElementById('rent-price').innerHTML = str;
+    })["catch"](function () {
+      alert('Error, Please Contact Us to report the problem');
+    });
+  }
 };
 
 /***/ }),
@@ -40758,8 +40765,8 @@ function showInputWhenReady() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Mata kuliah\Semester 5\Web Programming\Project kelas kecil\ezConference\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Mata kuliah\Semester 5\Web Programming\Project kelas kecil\ezConference\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\randi\Documents\Codes\Web\ez-conference\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\randi\Documents\Codes\Web\ez-conference\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
